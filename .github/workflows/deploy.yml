@@ -14,13 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: SFTP deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy with Password
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
+          server:     ${{ secrets.SFTP_HOST }}
+          port:       ${{ secrets.SFTP_PORT }}
+          username:   ${{ secrets.SFTP_USERNAME }}
+          password:   ${{ secrets.SFTP_PASSWORD }}
           local_path: ./
           remote_path: /data/web/e144814/html
-          exclude: ".git*, .github/**, README.md"
+          sftp_only:  true
+          exclude: ".git*,.github/**,README.md"
