@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: ./
           remote_path: /data/web/e144814/html
-          exlude: ".git*, .github/**, README.md"
+          exclude: ".git*, .github/**, README.md"
