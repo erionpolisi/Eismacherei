@@ -24,3 +24,4 @@ jobs:
           local_path: ./
           remote_path: /data/web/e144814/html
           sftp_only:  true
+          rsyncArgs: '--exclude=.git --exclude=.github --exclude=node_modules --exclude=*.log'
