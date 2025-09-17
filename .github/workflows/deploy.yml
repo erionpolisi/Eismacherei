@@ -1,4 +1,4 @@
-name: Deploy to easyname (SFTP)
+name: Deploy to easyname
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy with Password
+      - name: Deploy SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server:     ${{ secrets.SFTP_HOST }}
@@ -24,4 +24,3 @@ jobs:
           local_path: ./
           remote_path: /data/web/e144814/html
           sftp_only:  true
-          exclude: ".git*,.github/**,README.md"
