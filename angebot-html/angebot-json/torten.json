@@ -1,7 +1,7 @@
 [
   {
     "title": "Motivtorte",
-    "image": "../assets/img/torten/torte1-img.jpg",
+    "image": "../assets/img/torten/torte1-img.webp",
     "alt": "Bunte Motivtorte mit Figurendekor",
     "description": "Individuell gestaltete Torte mit essbaren Dekorelementen – ideal für besondere Anlässe.",
     "tags": ["motivtorte", "festlich"],
@@ -11,7 +11,7 @@
   },
   {
     "title": "Malakoff",
-    "image": "../assets/img/torten/torte2-img.jpg",
+    "image": "../assets/img/torten/torte2-img.webp",
     "alt": "Malakofftorte mit Biskuit und Creme",
     "description": "Luftige Biskuitcreme-Torte mit Mandelgeschmack und klassischem Flair.",
     "tags": ["klassiker", "mandel"],
@@ -21,7 +21,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/torten/torte3-img.jpg",
+    "image": "../assets/img/torten/torte3-img.webp",
     "alt": "Geburtstagstorte mit Motiven",
     "description": "Kreativ dekorierte Torte mit Wunschmotiv – besonders bei Kindern beliebt.",
     "tags": ["motivtorte", "geburtstag"],
@@ -31,7 +31,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/torten/torte4-img.jpg",
+    "image": "../assets/img/torten/torte4-img.webp",
     "alt": "Detailreiche Motivtorte",
     "description": "Handgemachte Torte mit farbenfrohem Design und liebevollen Details.",
     "tags": ["motivtorte"],
@@ -41,7 +41,7 @@
   },
   {
     "title": "Schnitten",
-    "image": "../assets/img/torten/torte5-img.jpg",
+    "image": "../assets/img/torten/torte5-img.webp",
     "alt": "Gemischte Schnitten mit Creme und Früchten",
     "description": "Feine Auswahl an Cremeschnitten, fruchtig und sahnig zugleich.",
     "tags": ["schnitten", "fruchtig"],
@@ -51,7 +51,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/torten/torte6-img.jpg",
+    "image": "../assets/img/torten/torte6-img.webp",
     "alt": "Festlich verzierte Motivtorte",
     "description": "Personalisierbare Torte mit farbiger Fondant-Deko.",
     "tags": ["motivtorte", "dekoriert"],
@@ -61,7 +61,7 @@
   },
   {
     "title": "Malakoff",
-    "image": "../assets/img/torten/torte7-img.jpg",
+    "image": "../assets/img/torten/torte7-img.webp",
     "alt": "Malakofftorte mit Biskuit und Creme",
     "description": "Sahnige Biskuit-Mandel-Torte – ein echter Klassiker.",
     "tags": ["klassiker", "sahnig"],
@@ -71,7 +71,7 @@
   },
   {
     "title": "Esterhazy",
-    "image": "../assets/img/torten/torte8-img.jpg",
+    "image": "../assets/img/torten/torte8-img.webp",
     "alt": "Esterhazytorte mit Nussbaiser und Creme",
     "description": "Feine Schichten aus Nussbaiser und Buttercreme – traditionsreiche Torte aus der k.u.k. Zeit.",
     "tags": ["klassiker", "nussig", "traditionell"],
@@ -81,7 +81,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/torten/torte9-img.jpg",
+    "image": "../assets/img/torten/torte9-img.webp",
     "alt": "Motivtorte mit Geburtstagsdeko",
     "description": "Verspielte Motivtorte für Kindergeburtstage oder besondere Feiern.",
     "tags": ["motivtorte", "geburtstag", "kinder"],
@@ -91,7 +91,7 @@
   },
   {
     "title": "Mozarttorte",
-    "image": "../assets/img/torten/torte10-img.jpg",
+    "image": "../assets/img/torten/torte10-img.webp",
     "alt": "Mozarttorte mit Pistazien und Schokolade",
     "description": "Edle Torte mit Schokoladenböden, Pistaziencreme und Marzipan.",
     "tags": ["klassiker", "nussig", "schokolade"],

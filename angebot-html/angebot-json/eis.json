@@ -1,7 +1,7 @@
 [
   {
     "title": "Vanille",
-    "image": "../assets/img/eis/Vanille.png",
+    "image": "../assets/img/eis/Vanille.webp",
     "alt": "Vanilleeis in Waffel",
     "vegan": false,
     "hauptsortiment": true,
@@ -15,7 +15,7 @@
   },
   {
   "title": "Malaga",
-  "image": "../assets/img/eis/Malaga.png",
+  "image": "../assets/img/eis/Malaga.webp",
   "alt": "Malaga-Eis mit Rosinen",
   "vegan": false,
   "hauptsortiment": true,
@@ -26,7 +26,7 @@
   },
   {
     "title": "Zitrone (v)",
-    "image": "../assets/img/eis/Zitrone.png",
+    "image": "../assets/img/eis/Zitrone.webp",
     "alt": "Zitroneneis erfrischend",
     "vegan": true,
     "hauptsortiment": true,
@@ -41,7 +41,7 @@
   },
   {
     "title": "Joghurt",
-    "image": "../assets/img/eis/Joghurt.png",
+    "image": "../assets/img/eis/Joghurt.webp",
     "alt": "Joghurt-Eis leicht und mild",
     "vegan": false,
     "hauptsortiment": true,
@@ -55,7 +55,7 @@
   },
 {
   "title": "Joghurt Himbeere",
-  "image": "../assets/img/eis/Joghurt_Himbeere.png",
+  "image": "../assets/img/eis/Joghurt_Himbeere.webp",
   "alt": "Joghurt-Himbeer-Eis mit Fruchtswirls",
   "vegan": false,
   "hauptsortiment": false,
@@ -66,7 +66,7 @@
 },
 {
   "title": "Fiocco",
-  "image": "../assets/img/eis/Fiocco.png",
+  "image": "../assets/img/eis/Fiocco.webp",
   "alt": "Fiocco-Eis mit Schlagobers und Milch",
   "vegan": false,
   "hauptsortiment": true,
@@ -77,7 +77,7 @@
 },
 {
   "title": "Mango (v)",
-  "image": "../assets/img/eis/Mango.png",
+  "image": "../assets/img/eis/Mango.webp",
   "alt": "Mango-Sorbet sonnengelb",
   "vegan": true,
   "hauptsortiment": true,
@@ -88,7 +88,7 @@
 },
 {
   "title": "Banane",
-  "image": "../assets/img/eis/Banane.png",
+  "image": "../assets/img/eis/Banane.webp",
   "alt": "Bananeneis cremig und mild",
   "vegan": false,
   "hauptsortiment": true,
@@ -99,7 +99,7 @@
 },
 {
   "title": "Erdbeere (v)",
-  "image": "../assets/img/eis/Erdbeere.png",
+  "image": "../assets/img/eis/Erdbeere.webp",
   "alt": "Erdbeer-Sorbet in leuchtendem Rot",
   "vegan": true,
   "hauptsortiment": true,
@@ -110,7 +110,7 @@
 },
 {
   "title": "Amarena Kirsch",
-  "image": "../assets/img/eis/Amarena_Kirsch.png",
+  "image": "../assets/img/eis/Amarena_Kirsch.webp",
   "alt": "Amarena-Kirsche-Eis mit Kirschstücken",
   "vegan": false,
   "hauptsortiment": true,
@@ -121,7 +121,7 @@
 },
 {
   "title": "Heidelbeere (v)",
-  "image": "../assets/img/eis/Heidelbeere.png",
+  "image": "../assets/img/eis/Heidelbeere.webp",
   "alt": "Heidelbeer-Sorbet violett",
   "vegan": true,
   "hauptsortiment": false,
@@ -132,7 +132,7 @@
 },
 {
   "title": "Bubble",
-  "image": "../assets/img/eis/Bubble.png",
+  "image": "../assets/img/eis/Bubble.webp",
   "alt": "Bubblegum-Eis in Pastellfarben",
   "vegan": false,
   "hauptsortiment": true,
@@ -143,7 +143,7 @@
 },
 {
   "title": "Pistazie",
-  "image": "../assets/img/eis/Pistazie.png",
+  "image": "../assets/img/eis/Pistazie.webp",
   "alt": "Pistazieneis cremig grün",
   "vegan": false,
   "hauptsortiment": true,
@@ -154,7 +154,7 @@
 },
 {
   "title": "Schokolade",
-  "image": "../assets/img/eis/Schokolade.png",
+  "image": "../assets/img/eis/Schokolade.webp",
   "alt": "Schokoladeneis dunkel und cremig",
   "vegan": false,
   "hauptsortiment": true,
@@ -165,7 +165,7 @@
 },
 {
   "title": "Haselnuss",
-  "image": "../assets/img/eis/Haselnuss.png",
+  "image": "../assets/img/eis/Haselnuss.webp",
   "alt": "Haselnusseis nussig und cremig",
   "vegan": false,
   "hauptsortiment": true,
@@ -176,7 +176,7 @@
 },
 {
   "title": "Stracciatella",
-  "image": "../assets/img/eis/Stracciatella.png",
+  "image": "../assets/img/eis/Stracciatella.webp",
   "alt": "Stracciatella-Eis mit Schokostückchen",
   "vegan": false,
   "hauptsortiment": true,
@@ -187,7 +187,7 @@
 },
 {
   "title": "Himbeere (v)",
-  "image": "../assets/img/eis/Himbeere.png",
+  "image": "../assets/img/eis/Himbeere.webp",
   "alt": "Himbeer-Sorbet intensiv rot",
   "vegan": true,
   "hauptsortiment": true,
@@ -198,7 +198,7 @@
 },
 {
   "title": "Kirsche (v)",
-  "image": "../assets/img/eis/Kirsche.png",
+  "image": "../assets/img/eis/Kirsche.webp",
   "alt": "Kirsch-Sorbet dunkelrot",
   "vegan": true,
   "color": "#f5a6b4",
@@ -208,7 +208,7 @@
 },
 {
   "title": "Cappuccino",
-  "image": "../assets/img/eis/Cappuccino.png",
+  "image": "../assets/img/eis/Cappuccino.webp",
   "alt": "Cappuccino-Eis mit feiner Kaffeearomatik",
   "vegan": false,
   "color": "#e7d5c1",
@@ -218,7 +218,7 @@
 },
 {
   "title": "Kokos (v)",
-  "image": "../assets/img/eis/Kokos.png",
+  "image": "../assets/img/eis/Kokos.webp",
   "alt": "Veganes Kokos-Sorbet mit feinem Kokosgeschmack",
   "vegan": true,
   "hauptsortiment": true,
@@ -229,7 +229,7 @@
 },
 {
   "title": "Lychee (v)",
-  "image": "../assets/img/eis/Lychee.png",
+  "image": "../assets/img/eis/Lychee.webp",
   "alt": "Lychee-Sorbet exotisch und hell",
   "vegan": true,
   "color": "#fef4f7",
@@ -239,7 +239,7 @@
 },
 {
   "title": "Grüner Apfel (v)",
-  "image": "../assets/img/eis/Gruener_Apfel.png",
+  "image": "../assets/img/eis/Gruener_Apfel.webp",
   "alt": "Grüner-Apfel-Sorbet leuchtend grün",
   "vegan": true,
   "hauptsortiment": true,
@@ -250,7 +250,7 @@
 },
 {
   "title": "Birne (v)",
-  "image": "../assets/img/eis/Birne.png",
+  "image": "../assets/img/eis/Birne.webp",
   "alt": "Birneneis zart und fruchtig",
   "vegan": true,
   "color": "#f9fce1",
@@ -260,7 +260,7 @@
 },
 {
   "title": "Karamell Popcorn",
-  "image": "../assets/img/eis/Karamell_Popcorn.png",
+  "image": "../assets/img/eis/Karamell_Popcorn.webp",
   "alt": "Karamell-Popcorn-Eis mit Crunch",
   "vegan": false,
   "color": "#f6e1c3",
@@ -270,7 +270,7 @@
 },
 {
   "title": "Pfirsich (v)",
-  "image": "../assets/img/eis/Pfirsich.png",
+  "image": "../assets/img/eis/Pfirsich.webp",
   "alt": "Pfirsich-Sorbet zart orange",
   "vegan": true,
   "color": "#ffe7c2",
@@ -280,7 +280,7 @@
 },
 {
   "title": "Cheesecake",
-  "image": "../assets/img/eis/Cheesecake.png",
+  "image": "../assets/img/eis/Cheesecake.webp",
   "alt": "Cheesecake-Eis mit Keksstücken",
   "vegan": false,
   "color": "#fdf0e5",

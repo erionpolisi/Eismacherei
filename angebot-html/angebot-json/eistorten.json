@@ -1,7 +1,7 @@
 [
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte1-img.jpg",
+    "image": "../assets/img/eistorte/torte1-img.webp",
     "alt": "Eistorte mit gefrorenen Beeren und Drip-Deko",
     "description": "Cremige Eistorte mit gefrosteten Beeren und Schoko-Drip – perfekt für Geburtstage.",
     "tags": ["motivtorte", "beeren", "geburtstag"],
@@ -11,7 +11,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte2-img.jpg",
+    "image": "../assets/img/eistorte/torte2-img.webp",
     "alt": "Torte mit buntem Fruchtmix und Schokodrip",
     "description": "Fruchtige Farben und Geschmack – dekoriert mit Kiwi, Orange, Beeren und Schoko-Elementen.",
     "tags": ["motivtorte", "frucht", "bunt"],
@@ -21,7 +21,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte3-img.jpg",
+    "image": "../assets/img/eistorte/torte3-img.webp",
     "alt": "Geburtstagstorte mit Fruchtdeko und Namen",
     "description": "Individuelle Geburtstagskreation mit Namen und fruchtiger Verzierung.",
     "tags": ["motivtorte", "geburtstag", "früchte"],
@@ -31,7 +31,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte4-img.jpg",
+    "image": "../assets/img/eistorte/torte4-img.webp",
     "alt": "Oreo-Eistorte mit Schoko-Drip",
     "description": "Für Keks-Liebhaber: Oreo-Torte mit Schoko-Drip und cremiger Füllung.",
     "tags": ["motivtorte", "oreo", "kekse"],
@@ -41,7 +41,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte5-img.jpg",
+    "image": "../assets/img/eistorte/torte5-img.webp",
     "alt": "Geburtstagstorte mit Beeren, Kiwi und Deko-Eiswaffel",
     "description": "Klassische Geburtstags-Eistorte mit Waffelhörnchen, Schokosplittern und frischem Obst.",
     "tags": ["motivtorte", "obst", "dekorativ"],
@@ -51,7 +51,7 @@
   },
   {
     "title": "Motivtorte",
-    "image": "../assets/img/eistorte/torte6-img.jpg",
+    "image": "../assets/img/eistorte/torte6-img.webp",
     "alt": "Kleine Eistorte für Hunde mit Knochen-Dekor",
     "description": "Hundetaugliche Eistorte mit liebevoller Deko – ideal für tierische Geburtstage.",
     "tags": ["motivtorte", "hund", "tier"],

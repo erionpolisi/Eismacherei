@@ -1,7 +1,7 @@
 [
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9418.png",
+    "image": "../assets/img/extras/_A1_9418.webp",
     "alt": "Waffel mit heißen Beeren und Schokosoße",
     "description": "Knusprige Waffel mit heißen Beeren, Vanilleeis, Sahne und Schokosoße.",
     "tags": ["waffel", "beeren", "dessert"],
@@ -11,7 +11,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9420.png",
+    "image": "../assets/img/extras/_A1_9420.webp",
     "alt": "Waffel mit Karamellsoße und Nüssen",
     "description": "Karamellisierte Waffel mit Haselnüssen, Sahne und Schokodekor.",
     "tags": ["waffel", "karamell", "nussig"],
@@ -21,7 +21,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9448.png",
+    "image": "../assets/img/extras/_A1_9448.webp",
     "alt": "Waffel mit buntem Einhorn-Eis und Smarties",
     "description": "Farbenfrohe Waffel mit Einhorn-Eis, Zuckerstreusel und Erdbeeren.",
     "tags": ["waffel", "einhorn", "kinder"],
@@ -31,7 +31,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9460.png",
+    "image": "../assets/img/extras/_A1_9460.webp",
     "alt": "Waffel mit Schokoröllchen und Soße",
     "description": "Intensive Schokoladenwaffel mit knusprigen Röllchen und Sahne.",
     "tags": ["waffel", "schokolade"],
@@ -41,7 +41,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9477.png",
+    "image": "../assets/img/extras/_A1_9477.webp",
     "alt": "Waffel mit Kinderschokolade und Schokosoße",
     "description": "Beliebte Waffel mit Kinderschokolade, Vanilleeis und Schokosoße.",
     "tags": ["waffel", "kinderschokolade", "kinder"],
@@ -51,7 +51,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9512.png",
+    "image": "../assets/img/extras/_A1_9512.webp",
     "alt": "Waffel mit Banane und Schoko",
     "description": "Frische Banane mit warmer Waffel, Sahne und Schokoladensoße.",
     "tags": ["waffel", "banane", "fruchtig"],
@@ -61,7 +61,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9527.png",
+    "image": "../assets/img/extras/_A1_9527.webp",
     "alt": "Waffel mit weißen Schokoraspeln und Kokos",
     "description": "Weiße Waffel mit Sahne, Kokos, Raffaello und Schokosoße.",
     "tags": ["waffel", "weiß", "kokos"],
@@ -71,7 +71,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9536.png",
+    "image": "../assets/img/extras/_A1_9536.webp",
     "alt": "Waffel mit frischen Erdbeeren und Sahne",
     "description": "Klassische Erdbeerwaffel mit Vanilleeis, Sahne und Erdbeersoße.",
     "tags": ["waffel", "erdbeere", "fruchtig"],
@@ -81,7 +81,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9547.png",
+    "image": "../assets/img/extras/_A1_9547.webp",
     "alt": "Waffel mit tropischen Früchten",
     "description": "Exotische Früchte wie Mango, Kiwi und Banane auf frischer Waffel.",
     "tags": ["waffel", "tropisch", "fruchtig"],
@@ -91,7 +91,7 @@
   },
   {
     "title": "",
-    "image": "../assets/img/extras/_A1_9556.png",
+    "image": "../assets/img/extras/_A1_9556.webp",
     "alt": "Waffel mit Erdbeeren und Vanilleeis",
     "description": "Frische Erdbeeren, Vanilleeis und Sahne auf knuspriger Waffel.",
     "tags": ["waffel", "erdbeere", "klassisch"],
@@ -101,7 +101,7 @@
   },
   {
     "title": "Eisknödl",
-    "image": "../assets/img/extras/9001.png",
+    "image": "../assets/img/extras/9001.webp",
     "alt": "Warmer Eisknödl mit Vanillesoße und Mohn",
     "description": "Süßer Eisknödl mit Vanillesoße, Mohnzucker und Schlagobers.",
     "tags": ["eisknödl", "dessert", "warm"],

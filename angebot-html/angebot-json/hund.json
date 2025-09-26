@@ -1,7 +1,7 @@
 [
   {
     "title": "Kalbsleber-streichwurst",
-    "image": "../assets/img/hund/Leberwurst.png",
+    "image": "../assets/img/hund/Leberwurst.webp",
     "alt": "Leberwurst-Hüttenkäse-Eis in Pfotenform",
     "vegan": false,
     "color": "#fbe1e8",
@@ -11,7 +11,7 @@
   },
   {
   "title": "Thunfisch – laktosefrei",
-  "image": "../assets/img/hund/Thunfisch.png",
+  "image": "../assets/img/hund/Thunfisch.webp",
   "alt": "Thunfisch-Eis für Hunde in niedlicher Pfotenform",
   "vegan": false,
   "color": "#e3f3f7",

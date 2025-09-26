@@ -1,7 +1,7 @@
 [
   {
     "title": "Nougat Royal",
-    "image": "../assets/img/mehlspeisen/mehlspeise1-img.jpg",
+    "image": "../assets/img/mehlspeisen/mehlspeise1-img.webp",
     "alt": "Zwei runde Schokoladentörtchen mit Eismacherei-Logo",
     "description": "Feine Rundtörtchen mit dunkler Schokoglasur, elegant dekoriert mit dem Eismacherei-Logo – ein edler Klassiker.",
     "tags": ["schokolade", "törtchen", "edel"],
@@ -11,7 +11,7 @@
   },
   {
     "title": "Gemischte Mehlspeisenplatte",
-    "image": "../assets/img/mehlspeisen/mehlspeise2-img.jpg",
+    "image": "../assets/img/mehlspeisen/mehlspeise2-img.webp",
     "alt": "Auswahl an Schnitten und Cremetörtchen mit Eismacherei-Logo",
     "description": "Vielfältige Auswahl an cremigen und fruchtigen Mehlspeisen – perfekt für Buffets oder Nachmittagskaffee.",
     "tags": ["gemischt", "cremig", "fruchtig"],
@@ -21,7 +21,7 @@
   },
   {
     "title": "Karottenkuchen-Stücke",
-    "image": "../assets/img/mehlspeisen/mehlspeise3-img.jpg",
+    "image": "../assets/img/mehlspeisen/mehlspeise3-img.webp",
     "alt": "Karottenkuchenstücke mit weißem Guss und Deko-Karotten",
     "description": "Saftiger Karottenkuchen mit Zuckerguss und handgefertigten Marzipankarotten – mit Eismacherei-Logo.",
     "tags": ["karottenkuchen", "glasur", "marzipan"],
@@ -31,7 +31,7 @@
   },
     {
     "title": "Cremeschnitten",
-    "image": "../assets/img/mehlspeisen/mehlspeise4-img.jpg",
+    "image": "../assets/img/mehlspeisen/mehlspeise4-img.webp",
     "alt": "Drei rosa überzogene Cremeschnitten mit Eismacherei-Logo",
     "description": "Klassische Cremeschnitten mit rosafarbener Glasur – fruchtig und zart aromatisiert mit Rum.",
     "tags": ["cremig", "schnitten", "klassiker"],
@@ -41,7 +41,7 @@
   },
   {
     "title": "Kinderriegel-Schokotörtchen",
-    "image": "../assets/img/mehlspeisen/mehlspeise5-img.jpg",
+    "image": "../assets/img/mehlspeisen/mehlspeise5-img.webp",
     "alt": "Schokoladentörtchen mit Kinderriegel-Deko und Eismacherei-Logo",
     "description": "Kreatives Schokotörtchen mit Sahne, Schokospänen und einem Kinderriegel als Topping – besonders beliebt bei Kindern.",
     "tags": ["kinderriegel", "törtchen", "schokolade"],

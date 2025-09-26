@@ -1,7 +1,7 @@
 [
   {
     "title": "Putensalami",
-    "image": "../assets/img/brot/putensalami.jpg",
+    "image": "../assets/img/brot/putensalami.webp",
     "alt": "Belegtes Brötchen mit Putensalami und Ei",
     "description": "Herzhaftes Brötchen mit Putensalami, Ei und frischer Garnitur.",
     "tags": ["fleisch", "salami", "pikant"],
@@ -11,7 +11,7 @@
   },
   {
     "title": "Lachs",
-    "image": "../assets/img/brot/lachs.jpg",
+    "image": "../assets/img/brot/lachs.webp",
     "alt": "Brötchen mit Räucherlachs und Sprossen",
     "description": "Frisches Brötchen mit zartem Räucherlachs, Sprossen und Ei.",
     "tags": ["fisch", "lachs", "edel"],
@@ -21,7 +21,7 @@
   },
   {
     "title": "Kräuteraufstrich",
-    "image": "../assets/img/brot/kraeuteraufstrich.jpg",
+    "image": "../assets/img/brot/kraeuteraufstrich.webp",
     "alt": "Brötchen mit Kräuteraufstrich und Tomate",
     "description": "Vegetarisches Brötchen mit würzigem Kräuteraufstrich und frischer Deko.",
     "tags": ["vegetarisch", "aufstrich", "kräuter"],
@@ -31,7 +31,7 @@
   },
   {
     "title": "Kaviar",
-    "image": "../assets/img/brot/kaviar.jpg",
+    "image": "../assets/img/brot/kaviar.webp",
     "alt": "Brötchen mit Kaviar und Ei",
     "description": "Exklusives Brötchen mit Kaviar, Ei und delikater Garnitur.",
     "tags": ["edel", "fisch", "kaviar"],
@@ -41,7 +41,7 @@
   },
   {
     "title": "Selchschopf",
-    "image": "../assets/img/brot/selchschopf.jpg",
+    "image": "../assets/img/brot/selchschopf.webp",
     "alt": "Brötchen mit Selchschopf und Ei",
     "description": "Kräftiger Selchschopf auf Brötchen mit Ei und Gewürzen.",
     "tags": ["fleisch", "selchschopf", "rauchig"],
@@ -51,7 +51,7 @@
   },
   {
     "title": "Schinken",
-    "image": "../assets/img/brot/schinken.jpg",
+    "image": "../assets/img/brot/schinken.webp",
     "alt": "Brötchen mit Schinken und Ei",
     "description": "Klassisches Brötchen mit Schinken, Ei und Kräutern.",
     "tags": ["klassiker", "fleisch", "schinken"],
@@ -61,7 +61,7 @@
   },
   {
     "title": "Eiaufstrich",
-    "image": "../assets/img/brot/eiaufstrich.jpg",
+    "image": "../assets/img/brot/eiaufstrich.webp",
     "alt": "Brötchen mit Eiaufstrich und Gurke",
     "description": "Cremiger Eiaufstrich auf Brötchen mit feiner Garnitur.",
     "tags": ["vegetarisch", "aufstrich", "ei"],
@@ -71,7 +71,7 @@
   },
   {
     "title": "Thunfischaufstrich",
-    "image": "../assets/img/brot/thunfischaufstrich.jpg",
+    "image": "../assets/img/brot/thunfischaufstrich.webp",
     "alt": "Brötchen mit Thunfischaufstrich",
     "description": "Pikanter Aufstrich aus Thunfisch auf knusprigem Brötchen.",
     "tags": ["fisch", "aufstrich", "thunfisch"],
@@ -81,7 +81,7 @@
   },
   {
     "title": "Käse",
-    "image": "../assets/img/brot/kaese.jpg",
+    "image": "../assets/img/brot/kaese.webp",
     "alt": "Brötchen mit Käse und Gemüse",
     "description": "Vegetarisches Käsebrötchen mit Paprika, Gurke und Deko.",
     "tags": ["vegetarisch", "käse", "klassiker"],
