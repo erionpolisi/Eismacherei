@@ -396,6 +396,51 @@ input{
 .hours-link:hover {
   color: var(--first-color-alt);
 }
+/*  NEW  */
+.new-container{
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 2.5rem 0 1.5rem;
+  row-gap: .75rem;
+}
+
+.new-data{
+  text-align: center;
+}
+
+.new-title{
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-2);
+}
+
+.new-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #700049;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+
+.new-img{
+  width: 200px;
+  justify-self: center;
+}
+
+.new-img {
+  transition: transform 0.3s;
+}
+
+.new-container:hover .new-img {
+  transform: translateY(-0.5rem);
+}
+
+#zimtschnecken-bild {
+  width: 160px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
 
 
 /*  BUTTONS  */
@@ -783,6 +828,22 @@ input{
   .home-img{
     height: 300px;
   }
+
+    .new-container{
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 3rem 0;
+    border-radius: 3rem;
+  }
+  .new-img{
+    width: 350px;
+    order: -1;
+  }
+  .new-data{
+    padding-right: 6rem;
+  }
   .swiper-pagination{
     margin-top: var(--mb-2);
   }
@@ -900,6 +961,9 @@ input{
   .home-description{
     margin-bottom: var(--mb-2-5);
     padding-right: 2rem;
+  }
+  .new-container{
+    column-gap: 7rem;
   }
 
   .category-container{

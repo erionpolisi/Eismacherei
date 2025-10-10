@@ -34,8 +34,8 @@
         </div>          
 
       <div class="hours-content">
-        <p>März, April und Oktober – Dezember</p>
-        <h3 class="hours-time">10 bis 20 Uhr</h3>
+        <p>März, April und Oktober</p>
+        <h3 class="hours-time">12 bis 20 Uhr</h3>
 
         <p>Mai  , September</p>
         <h3 class="hours-time">10 bis 21 Uhr</h3>
@@ -45,6 +45,9 @@
 
         <p>Juli, August</p>
         <h3 class="hours-time">10 bis 22 Uhr</h3>
+
+        <p>November, Dezember, Januar, Februar</p>
+        <h3 class="hours-time">12 bis 18 Uhr</h3>
       </div>
 
       <div id="status" style="margin-top: 2rem; font-size: 1.2rem; font-weight: bold;"></div> <!--Öffnungszeiten-->
@@ -62,8 +65,8 @@
       let openHour = 0;
       let closeHour = 0;
 
-      if ([2, 3, 9, 10, 11].includes(month)) { 
-        openHour = 10;
+      if ([2, 3, 9].includes(month)) { 
+        openHour = 12;
         closeHour = 20;
       } else if ([4, 8].includes(month)) {
         openHour = 10;
@@ -74,6 +77,9 @@
       } else if ([6, 7].includes(month)) {
         openHour = 10;
         closeHour = 22;
+      } else if ([10, 11, 0, 1].includes(month)) {
+        openHour = 12;
+        closeHour = 18;
       } else {
         document.getElementById('status').innerText = "Geschlossen";
         return;
