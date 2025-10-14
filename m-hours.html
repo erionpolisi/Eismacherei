@@ -58,7 +58,7 @@
 
 <script>
 function checkOpenStatus() {
-  const now = new Date("2025-06-19T15:00:00");
+  const now = new Date();
   const month = now.getMonth(); // Januar = 0
   const day = now.getDay(); // Sonntag = 0, Montag = 1, ...
   const dateStr = now.toISOString().split("T")[0]; // yyyy-mm-dd
