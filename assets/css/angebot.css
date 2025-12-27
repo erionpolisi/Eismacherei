@@ -2,7 +2,7 @@
 .angebot-container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;              /* mehr Abstand zwischen Haupt / Optional */
   align-items: center;
 }
 
@@ -10,8 +10,10 @@
 /* Section-Wrapper */
 .sortiment {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;      /* breiter */
   margin: 0 auto;
+  padding: 3rem 3.5rem;  /* mehr Innenluft */
+  border-radius: 2rem;
 }
 
 
@@ -27,35 +29,38 @@
 
 /* Label */
 .sortiment h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;     /* minimal größer */
+  font-weight: 600;     /* weniger aggressiv */
+  margin-bottom: 2rem;  /* mehr Abstand zum Grid */
   border-left: 4px solid #c2185b;
-  padding-left: 0.75rem;
+  padding-left: 0.9rem;
 }
+
 
 /* GRID für Cards */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* größere Cards */
+  gap: 2rem;              /* mehr Luft zwischen Cards */
 }
+
 
 /* CARD */
 .angebot-content {
-  border-radius: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
-  height: 180px;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  height: 200px;          /* größer */
   cursor: pointer;
-  perspective: 800px;
+  perspective: 900px;
   overflow: hidden;
 }
+
 
 /* Flip */
 .flip-inner {
   width: 100%;
   height: 100%;
-  transition: transform .6s;
+  transition: transform .6s ease;
   transform-style: preserve-3d;
 }
 
@@ -63,7 +68,8 @@
   transform: rotateY(180deg);
 }
 
-.front, .back {
+.front,
+.back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
@@ -71,16 +77,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1.4rem;       /* mehr Innenluft */
 }
 
 .back {
   transform: rotateY(180deg);
 }
 
+
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  .angebot-container {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  .sortiment {
+    padding: 2.5rem 2.5rem;
+  }
+
+  .card-grid {
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sortiment {
+    padding: 2rem 1.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .angebot-content {
+    height: 190px;
   }
 }
