@@ -1,72 +1,44 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  const containers = document.querySelectorAll(".angebot-container");
+const mainWrapper = document.createElement("div");
+mainWrapper.className = "sortiment main";
+mainWrapper.innerHTML = `<h3>Hauptsortiment</h3>`;
 
-  containers.forEach(async (container) => {
-    const id = container.id;
-    const mode = document.querySelector(".section-title")?.textContent.toLowerCase();
-    const isVeganOnly = mode.includes("vegan");
+const mainGrid = document.createElement("div");
+mainGrid.className = "card-grid";
+mainWrapper.appendChild(mainGrid);
 
-    const jsonUrl = `angebot-json/${id}.json`;
+const optionalWrapper = document.createElement("div");
+optionalWrapper.className = "sortiment optional";
+optionalWrapper.innerHTML = `<h3>Optional</h3>`;
 
+const optionalGrid = document.createElement("div");
+optionalGrid.className = "card-grid";
+optionalWrapper.appendChild(optionalGrid);
 
-    try {
-      const res = await fetch(jsonUrl);
-      if (!res.ok) throw new Error(`Fehler beim Laden von ${jsonUrl}`);
-      let eisDaten = await res.json();
+container.append(mainWrapper, optionalWrapper);
 
-      if (isVeganOnly) {
-        eisDaten = eisDaten.filter(eis => eis.vegan);
-      }
+// Karten
+eisDaten.forEach(eis => {
+  const card = document.createElement("div");
+  card.className = "angebot-content";
+  card.style.backgroundColor = eis.color;
 
-      let optionalLabelInserted = false;
-      const newBr = () => document.createElement("br");
+  card.innerHTML = `
+    <div class="flip-inner">
+      <div class="front">
+        <img src="${eis.image}" alt="${eis.alt}">
+        <h4>${eis.title}</h4>
+      </div>
+      <div class="back">
+        <p>${eis.description}</p>
+      </div>
+    </div>
+  `;
 
-      if(id != "hund"){
-      const mainLabel = document.createElement("div");
-          mainLabel.className = "label";
-          mainLabel.innerHTML = `<h3>Hauptsorten:</h3>`;
-          container.appendChild(mainLabel);
-          container.appendChild(newBr());
-      }
+  card.onclick = () => card.classList.toggle("flipped");
 
-      eisDaten.forEach(eis => {
-        // Hier wird pro Sorte geprüft
-        if (!eis.hauptsortiment && !optionalLabelInserted && ( id != "hund" )) {
-          const optionalLabel = document.createElement("div");
-          optionalLabel.className = "label";
-          optionalLabel.innerHTML = `<h3>Optional:</h3>`;
-          container.appendChild(newBr());
-          container.appendChild(optionalLabel);
-          container.appendChild(newBr());
-          optionalLabelInserted = true;
-        }
-
-        const div = document.createElement("div");
-        div.className = "angebot-content";
-        div.style.backgroundColor = eis.color;
-
-        div.innerHTML = `
-          <div class="flip-inner">
-            <div class="front">
-              <img src="${eis.image}" alt="${eis.alt}" class="angebot-img">
-              <h3 class="angebot-title">${eis.title}</h3>
-            </div>
-            <div class="back">
-              <p class="angebot-subtitle">${eis.description}</p>
-            </div>
-          </div>
-        `;
-
-        div.addEventListener("click", () => {
-          div.classList.toggle("flipped");
-        });
-
-        container.appendChild(div);
-      });
-
-    } catch (error) {
-      console.error(`Fehler beim Laden der Eis-Daten für "${id}":`, error);
-      alert("Fehler");
-    }
-  });
+  if (eis.hauptsortiment) {
+    mainGrid.appendChild(card);
+  } else {
+    optionalGrid.appendChild(card);
+  }
 });
