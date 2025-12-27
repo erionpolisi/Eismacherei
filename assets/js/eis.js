@@ -18,9 +18,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // 🐶 Hundeeis → kein Split
     if (id === "hund") {
-      renderSingleGrid(container, daten);
+      const wrapper = document.createElement("div");
+      wrapper.className = "sortiment main";
+
+      const grid = document.createElement("div");
+      grid.className = "card-grid";
+
+      daten.forEach(item => grid.appendChild(createCard(item)));
+
+      wrapper.appendChild(grid);
+      container.appendChild(wrapper);
       return;
     }
+
 
     // Split
     const haupt = daten.filter(e => e.hauptsortiment);

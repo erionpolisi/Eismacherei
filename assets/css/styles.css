@@ -402,6 +402,7 @@ input{
   border-radius: 1rem;
   padding: 2.5rem 0 1.5rem;
   row-gap: .75rem;
+  margin-top: 5rem;
 }
 
 .new-data{
@@ -771,7 +772,6 @@ input{
     row-gap: 1rem;
   }
 
-  .category-container,
   .angebot-container{
     grid-template-columns: .8fr;
     justify-content: center;
@@ -788,6 +788,30 @@ input{
     height: 200px;
     right: 3%;
   }
+  .home-description {
+    font-size: 0.8rem;   
+    line-height: 1.4;     
+  }
+
+  .category-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* Bilder mittig */
+  .speciality__img,
+  .home__img img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .category-container{
+    grid-template-columns: repeat(1, 1fr);
+  
+    }
 
   #zrk-btn{
     display: none;
