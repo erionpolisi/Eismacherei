@@ -1,22 +1,29 @@
 /* Wrapper für Haupt + Optional */
 .angebot-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: flex-start;
-  gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
 }
+
 
 /* Section-Wrapper */
 .sortiment {
-  background: rgba(255,255,255,0.25);
-  padding: 1.5rem;
-  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
 
 /* Hauptsortiment dunkler */
 .sortiment.main {
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.35);
 }
+
+.sortiment.optional {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 
 /* Label */
 .sortiment h3 {
