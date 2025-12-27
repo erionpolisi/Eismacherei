@@ -27,3 +27,7 @@ Eine kommerzielle Nutzung durch Dritte ist ohne schriftliche Zustimmung untersag
 ## Hosting
 
 Empfohlen wird das Hosting auf einem statischen Webserver (z. B. Netlify, Vercel, GitHub Pages).
+
+## Start Localhost
+
+npx http-server -p 8000 --bind 0.0.0.0
