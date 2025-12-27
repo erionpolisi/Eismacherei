@@ -34,21 +34,22 @@
         </div>          
 
       <div class="hours-content">
-        <p>März, April und Oktober</p>
-        <h3 class="hours-time">12 bis 20 Uhr</h3>
+        <p>März, April, September</p>
+        <h3 class="hours-time">11 bis 20 Uhr</h3>
 
-        <p>Mai  , September</p>
-        <h3 class="hours-time">10 bis 21 Uhr</h3>
+        <p>Mai, Juli, August</p>
+        <h3 class="hours-time">10 bis 22 Uhr</h3>
 
         <p>Juni</p>
         <h3 class="hours-time">9 bis 22 Uhr</h3>
 
-        <p>Juli, August</p>
-        <h3 class="hours-time">10 bis 22 Uhr</h3>
+        <p>Oktober</p>
+        <h3 class="hours-time">Je nach Wetterlage</h3>
 
-        <p>November, Dezember, Januar, Februar <br>[Samstag, Sonntag & Feiertage geschlossen]</p>
-        <h3 class="hours-time">12 bis 18 Uhr</h3>
+        <p>November, Dezember, Januar, Februar</p>
+        <h3 class="hours-time">Geschlossen</h3>
       </div>
+
 
       <div id="status" style="margin-top: 2rem; font-size: 1.2rem; font-weight: bold;"></div> <!--Öffnungszeiten-->
 
@@ -59,60 +60,51 @@
 <script>
 function checkOpenStatus() {
   const now = new Date();
-  const month = now.getMonth(); // Januar = 0
-  const day = now.getDay(); // Sonntag = 0, Montag = 1, ...
-  const dateStr = now.toISOString().split("T")[0]; // yyyy-mm-dd
+  const month = now.getMonth(); // Jan = 0
   const hour = now.getHours();
+  const status = document.getElementById('status');
 
-  let openHour = 0;
-  let closeHour = 0;
-  let closedToday = false;
+  let openHour = null;
+  let closeHour = null;
+  let message = "";
 
-  // Österreichische Feiertage (vereinfachte Liste, ohne bewegliche)
-  const holidays = [
-    "2025-01-01", "2025-01-06", "2025-04-21", "2025-05-01",
-    "2025-05-29", "2025-06-09", "2025-06-19", "2025-08-15",
-    "2025-10-26", "2025-11-01", "2025-12-08", "2025-12-25", "2025-12-26"
-  ];
-
-  if ([2, 3, 9].includes(month)) { 
-    openHour = 12; closeHour = 20;
-  } else if ([4, 8].includes(month)) {
-    openHour = 10; closeHour = 21;
-  } else if (month === 5) {
-    openHour = 9; closeHour = 22;
-  } else if ([6, 7].includes(month)) {
-    openHour = 10; closeHour = 22;
-  } else if ([10, 11, 0, 1].includes(month)) {
-    // Wintermonate
-    openHour = 12;
-    closeHour = 18;
-
-    // Wochenende schließen (Sa=6, So=0)
-    if (day === 6 || day === 0) 
-    {closedToday = true;
-    document.getElementById('status').innerText = "Geschlossen (Wochenende)";}
-
-    // Feiertag schließen
-    if (holidays.includes(dateStr)) 
-    {closedToday = true;
-    document.getElementById('status').innerText = "Geschlossen (Feiertag)";}
-
-  } else {
-    document.getElementById('status').innerText = "Geschlossen";
+  // November – Februar: geschlossen
+  if ([10, 11, 0, 1].includes(month)) {
+    status.innerText = "Derzeit geschlossen (Winterpause)";
+    status.style.color = "black";
     return;
   }
 
-  const status = document.getElementById('status');
-  if (closedToday) {
+  // März, April, September → 11–20
+  if ([2, 3, 8].includes(month)) {
+    openHour = 11;
+    closeHour = 20;
+  }
+
+  // Mai, Juli, August → 10–22
+  else if ([4, 6, 7].includes(month)) {
+    openHour = 10;
+    closeHour = 22;
+  }
+
+  // Juni → 9–22
+  else if (month === 5) {
+    openHour = 9;
+    closeHour = 22;
+  }
+
+  // Oktober → wetterabhängig
+  else if (month === 9) {
+    status.innerText = "Öffnungszeiten im Oktober je nach Wetterlage";
     status.style.color = "black";
     return;
   }
 
   const isOpen = hour >= openHour && hour < closeHour;
-  status.innerText = isOpen ? "Wir haben geöffnet!" : "Gerade nicht geöffnet";
+  status.innerText = isOpen ? "Wir haben geöffnet!" : "Gerade geschlossen";
   status.style.color = isOpen ? "green" : "black";
 }
 
 checkOpenStatus();
 </script>
+
