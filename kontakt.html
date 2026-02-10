@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Eismacherei</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png?v=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png?v=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/boxicons-2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/kontakt.css">
+</head>
+
+<body>
+
+<a href="/" class="back-button">← Zurück</a>
+
+<main class="main">
+    <section class="section container">
+        <h2 class="section-title">Kontakt</h2>
+
+        <form
+            action="https://formspree.io/f/xykdkgkq"
+            method="POST"
+            class="grid"
+            style="max-width:500px; margin:0 auto; row-gap:1rem;"
+        >
+            <input type="text" name="name" placeholder="Ihr Name" required>
+            <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+            <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+
+            <input type="hidden" name="_redirect" value="/danke.html" />
+
+            <button type="submit" class="button">
+                Nachricht senden
+            </button>
+
+            <p style="font-size:0.75rem; text-align:center;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Beantwortung Ihrer Anfrage zu.
+            </p>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>
