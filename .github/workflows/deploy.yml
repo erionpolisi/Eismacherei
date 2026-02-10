@@ -26,9 +26,10 @@ jobs:
           remote_path: /data/web/e144814/html
           
           sftp_only: true
-          delete_remote_files: true
+          #delete_remote_files: true
 
           rsyncArgs: >
+            --delete
             --exclude=.git
             --exclude=.github
             --exclude=node_modules
