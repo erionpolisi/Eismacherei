@@ -34,19 +34,19 @@
         </div>          
 
       <div class="hours-content">
-        <p>März, April, September</p>
-        <h3 class="hours-time">11 bis 20 Uhr</h3>
+        <p>März, April, Oktober</p>
+        <h3 class="hours-time">Mo–So: 11 bis 20 Uhr</h3>
 
-        <p>Mai, Juli, August</p>
-        <h3 class="hours-time">10 bis 22 Uhr</h3>
+        <p>Mai, September</p>
+        <h3 class="hours-time">Mo–So: 11 bis 21 Uhr</h3>
 
         <p>Juni</p>
-        <h3 class="hours-time">9 bis 22 Uhr</h3>
+        <h3 class="hours-time">Mo–Fr: 09 bis 22 Uhr<br>Sa–So: 11 bis 22 Uhr</h3>
 
-        <p>Oktober</p>
-        <h3 class="hours-time">Je nach Wetterlage</h3>
+        <p>Juli, August</p>
+        <h3 class="hours-time">Mo–So: 11 bis 22 Uhr</h3>
 
-        <p>November, Dezember, Januar, Februar</p>
+        <p>November – Februar</p>
         <h3 class="hours-time">Geschlossen</h3>
       </div>
 
@@ -62,42 +62,46 @@ function checkOpenStatus() {
   const now = new Date();
   const month = now.getMonth(); // Jan = 0
   const hour = now.getHours();
+  const day = now.getDay(); // So = 0, Mo = 1
   const status = document.getElementById('status');
 
   let openHour = null;
   let closeHour = null;
-  let message = "";
 
-  // November – Februar: geschlossen
+  // Nov – Feb: geschlossen
   if ([10, 11, 0, 1].includes(month)) {
     status.innerText = "Derzeit geschlossen (Winterpause)";
     status.style.color = "black";
     return;
   }
 
-  // März, April, September → 11–20
-  if ([2, 3, 8].includes(month)) {
+  // März, April, Oktober → 11–20
+  if ([2, 3, 9].includes(month)) {
     openHour = 11;
     closeHour = 20;
   }
 
-  // Mai, Juli, August → 10–22
-  else if ([4, 6, 7].includes(month)) {
-    openHour = 10;
+  // Mai, September → 11–21
+  else if ([4, 8].includes(month)) {
+    openHour = 11;
+    closeHour = 21;
+  }
+
+  // Juli, August → 11–22
+  else if ([6, 7].includes(month)) {
+    openHour = 11;
     closeHour = 22;
   }
 
-  // Juni → 9–22
+  // Juni → Mo–Fr 9–22, Sa–So 11–22
   else if (month === 5) {
-    openHour = 9;
-    closeHour = 22;
-  }
-
-  // Oktober → wetterabhängig
-  else if (month === 9) {
-    status.innerText = "Öffnungszeiten im Oktober je nach Wetterlage";
-    status.style.color = "black";
-    return;
+    if (day >= 1 && day <= 5) {
+      openHour = 9;
+      closeHour = 22;
+    } else {
+      openHour = 11;
+      closeHour = 22;
+    }
   }
 
   const isOpen = hour >= openHour && hour < closeHour;
