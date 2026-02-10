@@ -131,7 +131,7 @@ if ('serviceWorker' in navigator) {
 
 const installButton = document.getElementById('installButton');
 
-let deferredPrompt = null;
+let deferredPrompt = null; //TODO: für IOS und Desktop testen, ob das funktioniert, wenn die App schon installiert ist oder auf iOS
 
 window.addEventListener('beforeinstallprompt', (e) => {
   console.log('beforeinstallprompt fired');
