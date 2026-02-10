@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eismacherei-v1';
+const CACHE_NAME = 'eismacherei-v3';
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -6,6 +6,7 @@ self.addEventListener('install', event => {
       cache.addAll([
         '/',
         '/index.html',
+        '/offline.html',
         '/assets/css/styles.css',
         '/assets/js/main.js'
       ])
@@ -15,8 +16,11 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request)
-    )
+    fetch(event.request)
+      .then(response => response)
+      .catch(() => {
+        return caches.match(event.request)
+          .then(response => response || caches.match('/offline.html'));
+      })
   );
 });

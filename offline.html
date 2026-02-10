@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Offline – Eismacherei</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4b400">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff7e6;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .card {
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      background: #f4b400;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🍦 Du bist offline</h1>
+    <p>
+      Keine Sorge – sobald du wieder Internet hast,
+      ist die Eismacherei wieder für dich da.
+    </p>
+    <button onclick="location.reload()">Erneut versuchen</button>
+  </div>
+</body>
+</html>

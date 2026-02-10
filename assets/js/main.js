@@ -129,3 +129,28 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+const installButton = document.getElementById('installButton');
+
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  console.log('beforeinstallprompt fired');
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+if (installButton) {
+  installButton.addEventListener('click', async () => {
+    if (!deferredPrompt) {
+      alert('❌ Install-Event wurde noch nicht ausgelöst.\n\n' +
+            'Das ist normal auf Desktop, iOS oder wenn die App schon installiert ist.');
+      return;
+    }
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    console.log('User choice:', outcome);
+    deferredPrompt = null;
+  });
+}
