@@ -1,28 +1,37 @@
-name: Deploy to easyname
+name: Deploy Website (easyname)
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy SFTP
+      - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server:     ${{ secrets.SFTP_HOST }}
-          port:       ${{ secrets.SFTP_PORT }}
-          username:   ${{ secrets.SFTP_USERNAME }}
-          password:   ${{ secrets.SFTP_PASSWORD }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          #ssh_private_key: ${{ secrets.SFTP_SSH_KEY }}
+
           local_path: ./
           remote_path: /data/web/e144814/html
-          sftp_only:  true
-          delete: true
-          rsyncArgs: '--exclude=.git --exclude=.github --exclude=node_modules --exclude=*.log --exclude=*.md --exclude=*.txt' 
+          
+          sftp_only: true
+          delete_remote_files: true
+
+          rsyncArgs: >
+            --exclude=.git
+            --exclude=.github
+            --exclude=node_modules
+            --exclude=*.log
+            --exclude=*.md
+            --exclude=*.txt
