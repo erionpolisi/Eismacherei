@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eismacherei</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Impressum und Offenlegung der Langsteiner’s Eismacherei e.U. – Mergenthalerplatz 1, 1220 Wien.">
+  <title>Impressum & ÖZ | Eismacherei</title>
 
   <!-- Standard Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=1">
@@ -18,128 +19,134 @@
   <!-- Android / Progressive Web App -->
   <link rel="manifest" href="assets/img/site.webmanifest">
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--body-color);
-      font-family: var(--body-font);
-      color: var(--text-color);
-    }
-
-    .section {
-      padding: 4rem 1rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      max-width: 800px;
-      width: 100%;
-      background: var(--container-color);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .home-description {
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-
-    a {
-      color: var(--first-color);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: var(--first-color-alt);
-    }
-
-    @media screen and (max-width: 1064px){
-      #zrk-btn{
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/boxicons-2.1.4/css/boxicons.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/legal.css">
 </head>
 <body>
 
-  <a href="index.html" class="back-button" id="zrk-btn">← Zurück</a>
+  <!--   HEADER (wie index.html)   -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/img/logo.webp" alt="Eismacherei Logo" class="nav-logo-img">
+        Eismacherei
+      </a>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Impressum & Offenlegung (ÖZ) gemäß § 5 ECG und § 25 MedienG</h2>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#category" class="nav-link">Eissorten</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#angebot" class="nav-link">Angebot</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#discount" class="nav-link">Gutscheine</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">Über Uns</a>
+          </li>
+          <li class="nav-item">
+            <a href="kontakt.html" class="button button-Kontakt" id="Kontakt">Kontakt</a>
+          </li>
+        </ul>
 
-      <p class="home-description">
-        <strong>Medieninhaber & Herausgeber</strong><br>
-        Langsteiner’s Eismacherei e.U.<br>
-        Straßmeyergasse 71/3/5<br>
-        Mergenthalerplatz 1<br>
-        1220 Wien<br>
-        Österreich<br>
-        <strong>Inhaber:</strong><br>
-        Johann Langsteiner
-      </p>
+        <div class="nav-close" id="nav-close" role="button" aria-label="Menü schließen" tabindex="0">
+          <i class='bx bx-x'></i>
+        </div>
+      </div>
 
-      <p class="home-description">
-        <strong>Kontakt:</strong><br>
-        E-Mail: <a href="mailto:eismacherei22@gmail.com">eismacherei22@gmail.com</a><br>
-        Telefon: <a href="tel:+436763909962">+43 676 3909962</a>
-      </p>
+      <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Menü öffnen" tabindex="0">
+        <i class='bx bx-grid-alt'></i>
+      </div>
 
-      <p class="home-description">
-        <strong>Unternehmensform:</strong><br>
-        Einzelunternehmen (eingetragenes Unternehmen – e.U.)
-      </p>
-
-      <p class="home-description">
-        <strong>Gewerbeordnung:</strong><br>
-        <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a>
-      </p>
-
-      <p class="home-description">
-        <strong>Aufsichtsbehörde:</strong><br>
-        Magistratisches Bezirksamt für den 22. Bezirk, Wien
-      </p>
-
-      <p class="home-description">
-        <strong>Mitglied bei:</strong><br>
-        Wirtschaftskammer Wien
-      </p>
-
-      <p class="home-description">
-        <strong>Blattlinie (Ziel der Website):</strong><br>
-        Diese Website informiert über die Produkte, Neuigkeiten und Aktionen der Eismacherei sowie über Veranstaltungen und aktuelle Angebote im Bereich handgemachtes Speiseeis.
-      </p>
-
-      <p class="home-description">
-        <strong>Haftung für Inhalte:</strong><br>
-        Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
-      </p>
-
-      <p class="home-description">
-        <strong>Datenschutz:</strong><br>
-        Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer 
-        <a href="datenschutz.html">Datenschutzerklärung</a>.
-      </p>
-
-      <p class="home-description">
-        <strong>Websitegestaltung & technische Umsetzung:</strong><br>
-        © 2025
-        <a href="https://www.linkedin.com/in/erion-polisi-b77a89355/" target="_blank" rel="noopener">
-          Erion Polisi
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@eismachereieismac" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <i class='bx bxl-tiktok'></i>
         </a>
-      </p>
+        <a href="https://www.instagram.com/eismacherei_wien_22" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <i class='bx bxl-instagram-alt'></i>
+        </a>
+        <a href="https://www.facebook.com/EISMACHEREI" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <i class='bx bxl-facebook'></i>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-    </div>
-  </section>
+  <main class="main">
+    <section class="section legal" id="impressum">
+      <h2 class="section-title">Impressum & Offenlegung (ÖZ)</h2>
+      <p class="legal-intro">gemäß § 5 ECG und § 25 MedienG</p>
 
+      <div class="legal-container legal-grid">
+        <article class="legal-card legal-card-wide">
+          <h3 class="legal-card-title"><i class='bx bx-store-alt'></i>Medieninhaber & Herausgeber</h3>
+          <p>
+            Langsteiner’s Eismacherei e.U.<br>
+            Straßmeyergasse 71/3/5<br>
+            Mergenthalerplatz 1<br>
+            1220 Wien<br>
+            Österreich
+          </p>
+          <p><strong>Inhaber:</strong> Johann Langsteiner</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-envelope'></i>Kontakt</h3>
+          <p>
+            E-Mail: <a href="mailto:eismacherei22@gmail.com">eismacherei22@gmail.com</a><br>
+            Telefon: <a href="tel:+436763909962">+43 676 3909962</a>
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-briefcase'></i>Unternehmensform</h3>
+          <p>Einzelunternehmen (eingetragenes Unternehmen – e.U.)</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-book-open'></i>Gewerbeordnung</h3>
+          <p><a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-buildings'></i>Aufsichtsbehörde</h3>
+          <p>Magistratisches Bezirksamt für den 22. Bezirk, Wien</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-group'></i>Mitglied bei</h3>
+          <p>Wirtschaftskammer Wien</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-bullseye'></i>Blattlinie (Ziel der Website)</h3>
+          <p>Diese Website informiert über die Produkte, Neuigkeiten und Aktionen der Eismacherei sowie über Veranstaltungen und aktuelle Angebote im Bereich handgemachtes Speiseeis.</p>
+        </article>
+
+        <article class="legal-card legal-card-wide">
+          <h3 class="legal-card-title"><i class='bx bx-link-external'></i>Haftung für Inhalte</h3>
+          <p>Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-lock-alt'></i>Datenschutz</h3>
+          <p>Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </article>
+
+        <article class="legal-card">
+          <h3 class="legal-card-title"><i class='bx bx-code-alt'></i>Websitegestaltung</h3>
+          <p>Technische Umsetzung: © 2025 <a href="https://www.linkedin.com/in/erion-polisi-b77a89355/" target="_blank" rel="noopener">Erion Polisi</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
