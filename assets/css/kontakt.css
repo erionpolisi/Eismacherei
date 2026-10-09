@@ -1,11 +1,37 @@
 input, textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 1rem;
   font-family: var(--body-font);
-  border: 2px solid transparent;
+  font-size: var(--normal-font-size);
+  background: var(--glass-bg-strong);
+  border: 1px solid hsla(330, 40%, 80%, .6);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 input:focus, textarea:focus {
   border-color: var(--first-color);
+  box-shadow: 0 0 0 4px hsla(330, 70%, 45%, .12);
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  row-gap: 1rem;
+}
+
+.form-status {
+  display: none;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-consent {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.form-gotcha {
+  display: none;
 }

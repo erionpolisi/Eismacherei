@@ -2,11 +2,27 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     display: flex;
-    scroll-behavior: smooth;
     gap: 1rem;
     padding: 2rem;
-    background: #fef6e4;
+    max-width: 1100px;
+    margin: 0 1rem;
+    background: hsla(0, 0%, 100%, .45);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
     position: relative;
+    /* Hide the scrollbar for a clean carousel look */
+    scrollbar-width: none;
+  }
+
+  @media screen and (min-width: 1164px) {
+    .scroll-gallery {
+      margin: 0 auto;
+    }
+  }
+
+  .scroll-gallery::-webkit-scrollbar {
+    display: none;
   }
 
   .scroll-gallery-inner {
@@ -17,12 +33,19 @@
   .scroll-slide {
     flex: 0 0 auto;
     width: 300px;
-    border-radius: 1rem;
+    border-radius: var(--radius-md);
     background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
     overflow: hidden;
     text-align: center;
     pointer-events: auto;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+
+  .scroll-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 
   .scroll-slide img {
@@ -30,6 +53,7 @@
     height: 40vw;
     max-height: 280px;
     object-fit: cover ;
+    cursor: zoom-in;
   }
 
   .scroll-slide-title {
@@ -46,16 +70,26 @@
   }
 
   .scroll-btn {
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    background: none;
-    border: none;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
     color: var(--first-color);
-    transition: color 0.3s;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), color var(--transition-smooth), background var(--transition-smooth);
   }
 
   .scroll-btn:hover {
-    color: var(--first-color-alt);
+    background: var(--gradient-primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
 .image-overlay {
@@ -64,18 +98,22 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  cursor: zoom-out;
 }
 
 .image-overlay img {
   max-width: 90vw;
   max-height: 90vh;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}  
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
 
   @media screen and (max-width: 767px) {
     .scroll-gallery {

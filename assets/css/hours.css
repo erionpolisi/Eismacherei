@@ -1,56 +1,321 @@
-html, body {
-    height: 100%;
-    margin: 0;
-  }
+/* m-hours — Öffnungszeiten im Glass-/Kochbuchstil */
 
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--body-color);
-  }
+body {
+  margin: 0;
+  background: var(--body-color);
+}
 
+.hours-section {
+  padding: 5.5rem 1rem 3rem;
+}
+
+.hours-container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.section-subtitle {
+  font-size: var(--normal-font-size);
+  color: var(--first-color);
+  margin-top: 0.75rem;
+}
+
+/* ===== Live-Status ===== */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: 1.1rem;
+  padding: .55rem 1.25rem;
+  background: var(--glass-bg-strong);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  font-weight: var(--font-medium);
+  font-size: var(--small-font-size);
+}
+
+.status-dot {
+  width: .7rem;
+  height: .7rem;
+  border-radius: 50%;
+  background: var(--text-color-light);
+  flex-shrink: 0;
+}
+
+.status-pill.open .status-dot {
+  background: hsl(145, 60%, 42%);
+  animation: statusPulse 1.8s ease-out infinite;
+}
+
+.status-pill.closed .status-dot {
+  background: hsl(345, 75%, 55%);
+}
+
+@keyframes statusPulse {
+  0%   { box-shadow: 0 0 0 0 hsla(145, 60%, 42%, .45); }
+  70%  { box-shadow: 0 0 0 9px hsla(145, 60%, 42%, 0); }
+  100% { box-shadow: 0 0 0 0 hsla(145, 60%, 42%, 0); }
+}
+
+/* ===== Saisonkarten (Kochbuchstil) ===== */
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.season-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.4rem 1rem 1.2rem;
+  text-align: center;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  animation: riseIn .6s cubic-bezier(.33, 1, .68, 1) backwards;
+}
+
+.season-card:nth-child(2) { animation-delay: .07s; }
+.season-card:nth-child(3) { animation-delay: .14s; }
+.season-card:nth-child(4) { animation-delay: .21s; }
+.season-card:nth-child(5) { animation-delay: .28s; }
+
+.season-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.season-icon {
+  display: block;
+  font-size: 1.9rem;
+  margin-bottom: .5rem;
+}
+
+.season-title {
+  font-size: var(--normal-font-size);
+  margin-bottom: .2rem;
+}
+
+.season-months {
+  font-size: var(--smaller-font-size);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-color-light);
+  margin-bottom: .8rem;
+}
+
+/* Rezeptkarten-Trenner */
+.season-time {
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color-alt);
+  font-size: var(--small-font-size);
+  line-height: 1.55;
+  border-top: 2px dashed hsla(330, 45%, 70%, .5);
+  padding-top: .8rem;
+}
+
+.season-card--winter {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 1rem;
+}
+
+.season-card--winter .season-icon {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.season-card--winter .season-time {
+  border: 0;
+  padding: 0;
+}
+
+/* ===== Kalender ===== */
+.calendar-card {
+  background: var(--glass-bg-strong);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.75rem 1.5rem 1.5rem;
+  animation: riseIn .6s cubic-bezier(.33, 1, .68, 1) .2s backwards;
+}
+
+.calendar-eyebrow {
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--first-color);
+  font-weight: var(--font-medium);
+  margin-bottom: .35rem;
+}
+
+.calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.calendar-month {
+  font-size: var(--h3-font-size);
+  text-align: center;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  min-width: 12ch;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: hsla(0, 0%, 100%, .7);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  color: var(--first-color);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background var(--transition-smooth), color var(--transition-smooth);
+}
+
+.calendar-nav:hover:not(:disabled) {
+  background: var(--gradient-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.calendar-nav:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: .3rem;
+}
+
+.calendar-weekdays {
+  margin-bottom: .45rem;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-color-light);
+  font-weight: var(--font-medium);
+}
+
+.calendar-day {
+  min-height: 3.4rem;
+  border-radius: .8rem;
+  background: hsla(0, 0%, 100%, .55);
+  border: 1px solid hsla(0, 0%, 100%, .65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .15rem;
+}
+
+.day-number {
+  font-weight: var(--font-semi-bold);
+  font-size: var(--small-font-size);
+  line-height: 1;
+  color: var(--title-color);
+}
+
+.day-hours {
+  font-size: .62rem;
+  font-weight: var(--font-medium);
+  color: var(--first-color-alt);
+  line-height: 1;
+}
+
+.calendar-day.closed {
+  background: transparent;
+  border-color: transparent;
+  opacity: .45;
+}
+
+.calendar-day.closed .day-hours {
+  color: var(--text-color-light);
+}
+
+.calendar-day.today {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  box-shadow: 0 6px 16px hsla(330, 70%, 45%, .4);
+}
+
+.calendar-day.today .day-number,
+.calendar-day.today .day-hours {
+  color: #fff;
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.calendar-legend {
+  margin-top: 1.1rem;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
   .hours-section {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding-top: 5rem;
   }
 
-  .hours-content {
-    background: var(--container-color);
-    padding: 2rem 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .calendar-card {
+    padding: 1.4rem .9rem 1.2rem;
   }
 
-  .hours-content p {
-    font-size: var(--normal-font-size);
-    color: var(--first-color);
-    margin: 1rem 0 .5rem;
+  .calendar-day {
+    min-height: 3rem;
+    border-radius: .65rem;
   }
 
-  .hours-time {
-    font-size: var(--h2-font-size);
-    font-weight: var(--font-semi-bold);
-    color: var(--title-color);
-    margin-bottom: 1.5rem;
+  .day-hours {
+    font-size: .55rem;
   }
-
-  .section-title {
-    color: var(--first-color-alt);
-    margin-bottom: 2rem;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: var(--normal-font-size);
-    color: var(--first-color);
-    margin-top: 0.5rem;
-  }
+}

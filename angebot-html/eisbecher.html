@@ -31,7 +31,7 @@
 </style>
 
 <body>
-  <a href="javascript:history.back()" class="back-button" id="zrk-btn">← Zurück</a>
+  <a href="../index.html#angebot" class="back-button" id="zrk-btn">← Zurück</a>
 
   <main class="main">
     <section class="section angebot" id="angebot">
@@ -44,8 +44,8 @@
       </div>
 
       <div class="scroll-nav">
-        <button class="scroll-btn" onclick="manualScroll(-1)">&#10094;</button>
-        <button class="scroll-btn" onclick="manualScroll(1)">&#10095;</button>
+        <button class="scroll-btn" data-scroll="-1" aria-label="Zurück scrollen">&#10094;</button>
+        <button class="scroll-btn" data-scroll="1" aria-label="Weiter scrollen">&#10095;</button>
       </div>
     </section>
   </main>

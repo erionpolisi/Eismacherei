@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eismacherei Wien – handgemachtes Eis, Eistorten, Torten und Mehlspeisen am Mergenthalerplatz. Täglich frisch, auch vegan und für Hunde.">
     <title>Eismacherei</title>
 
     <!-- Standard Favicon -->
@@ -26,7 +27,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav-logo">
-                <img src="assets/img/logo.webp" alt="" class="nav-logo-img">
+                <img src="assets/img/logo.webp" alt="Eismacherei Logo" class="nav-logo-img">
                 Eismacherei
             </a>
 
@@ -47,15 +48,17 @@
                     <li class="nav-item">
                         <a href="#about" class="nav-link">Über Uns</a>
                     </li>
-                    <a href="#footer" class="button button-Kontakt" id="Kontakt">Kontakt</a>
+                    <li class="nav-item">
+                        <a href="#footer" class="button button-Kontakt" id="Kontakt">Kontakt</a>
+                    </li>
                 </ul>
 
-                <div class="nav-close" id="nav-close">
+                <div class="nav-close" id="nav-close" role="button" aria-label="Menü schließen" tabindex="0">
                     <i class='bx bx-x'></i>
                 </div>
             </div>
 
-            <div class="nav-toggle" id="nav-toggle">
+            <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Menü öffnen" tabindex="0">
                 <i class='bx bx-grid-alt'></i>
             </div>
 
@@ -83,7 +86,7 @@
                     <div class="home-content grid">
                         <div class="home-background">
                             <div class="home-group">
-                                <img src="assets/img/home1-img.webp" alt="" class="home-img">
+                                <img src="assets/img/home1-img.webp" alt="Eissalon Eismacherei am Mergenthalerplatz" class="home-img">
                             </div>
                         </div>
                         <div class="home-data">
@@ -101,7 +104,7 @@
                           
                             <div class="home-buttons">
                               <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x476d07ed57384769:0x7e1fc0d488b1257b?sa=X&ved=1t:8290&ictx=111" target="_blank" rel="noopener noreferrer"  class="button">Standort ansehen</a>
-                              <a class="button2 button--flex" onclick="nextSlide()">Nächster Standort<i class='bx bx-right-arrow-alt button-icon'></i></a>
+                              <a class="button2 button--flex" data-slide-next role="button" tabindex="0">Nächster Standort<i class='bx bx-right-arrow-alt button-icon'></i></a>
                             </div>                          
                         </div>
                     </div>
@@ -111,7 +114,7 @@
                 <section class="home-page">
                     <div class="home-content grid">
                         <div class="home-group">
-                            <img src="assets/img/home2-img.webp" alt="" class="home-img">
+                            <img src="assets/img/home2-img.webp" alt="Eismacherei Standort Auszeit 21 am Sportplatz KSV Siemens" class="home-img" loading="lazy">
                         </div>
                         <div class="home-data">
                             <h3 class="home-subtitle">Sportplatz - KSV Siemens</h3>
@@ -121,7 +124,7 @@
                                 <!-- WENN WEBSITE ONLINE IST:
                                 <a href="https://auszeit21.at" target="_blank" rel="noopener noreferrer" class="button">Zur Website</a>
                                 -->
-                                <a class="button2" class="button--link button--flex" onclick="nextSlide()">Zurück zum Start</a>
+                                <a class="button2 button--flex" data-slide-next role="button" tabindex="0">Zurück zum Start</a>
                             </div>
                         </div>
                     </div>
@@ -147,23 +150,23 @@
                 <h2 class="section-title">Unsere Eisspezialitäten</h2>
 
                 <div class="category-container container grid">
-                    <div onclick="location.href='angebot-html/vegan.html'" class="category-data">
-                        <img src="assets/img/category1-img.webp" alt="" class="category-img">
+                    <a href="angebot-html/vegan.html" class="category-data">
+                        <img src="assets/img/category1-img.webp" alt="Veganes Eis" class="category-img" loading="lazy">
                         <h3 class="category-title">Veganes Eis</h3>
                         <p class="category-description">Natürlich köstlich!</p>
-                    </div>
+                    </a>
 
-                    <div onclick="location.href='angebot-html/eis.html'" class="category-data">
-                        <img src="assets/img/category2-img.webp" alt="" class="category-img">
+                    <a href="angebot-html/eis.html" class="category-data">
+                        <img src="assets/img/category2-img.webp" alt="Klassisches Eis" class="category-img" loading="lazy">
                         <h3 class="category-title">Klassisches Eis</h3>
                         <p class="category-description">Süße Verführung!</p>
-                    </div>
+                    </a>
 
-                    <div onclick="location.href='angebot-html/hund.html'" class="category-data">
-                        <img src="assets/img/category3-img.webp" alt="" class="category-img">
+                    <a href="angebot-html/hund.html" class="category-data">
+                        <img src="assets/img/category3-img.webp" alt="Hunde Eis" class="category-img" loading="lazy">
                         <h3 class="category-title">Hunde Eis</h3>
                         <p class="category-description">Für unsere besten Freunde!</p>
-                    </div>
+                    </a>
                 </div>
             </section>
 
@@ -172,54 +175,54 @@
                 <h2 class="section-title">Unser Angebot im Mergenthalerplatz</h2>
 
                 <div class="angebot-container container grid">
-                    <div onclick="location.href='angebot-html/eistorte.html'" class="angebot-content">
-                        <img src="assets/img/angebot1-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/eistorte.html" class="angebot-content">
+                        <img src="assets/img/angebot1-img.webp" alt="Eistorten" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Eistorten</h3>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 
-                    <div onclick="location.href='angebot-html/torten.html'" class="angebot-content">
-                        <img src="assets/img/angebot2-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/torten.html" class="angebot-content">
+                        <img src="assets/img/angebot2-img.webp" alt="Torten" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Torten</h3>
                         <span class="angebot-subtitle">inkl. Eis- & Sachertorten</span>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 
-                    <div onclick="location.href='angebot-html/mehlspeisen.html'" class="angebot-content">
-                        <img src="assets/img/angebot3-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/mehlspeisen.html" class="angebot-content">
+                        <img src="assets/img/angebot3-img.webp" alt="Mehlspeisen" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Mehlspeisen</h3>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 <!-- Wurde eingestellt ca. 18.08.2026
-                    <div onclick="location.href='angebot-html/brot.html'" class="angebot-content">
-                        <img src="assets/img/angebot4-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/brot.html" class="angebot-content">
+                        <img src="assets/img/angebot4-img.webp" alt="Belegte Brötchen" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Belegte Brötchen</h3>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 -->
-                    <div onclick="location.href='angebot-html/eisbecher.html'" class="angebot-content">
-                        <img src="assets/img/angebot5-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/eisbecher.html" class="angebot-content">
+                        <img src="assets/img/angebot5-img.webp" alt="Eisbecher" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Eisbecher</h3>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 
-                    <div onclick="location.href='angebot-html/extras.html'" class="angebot-content">
-                        <img src="assets/img/angebot6-img.webp" alt="" class="angebot-img">
+                    <a href="angebot-html/extras.html" class="angebot-content">
+                        <img src="assets/img/angebot6-img.webp" alt="Eis Extras" class="angebot-img" loading="lazy">
                         <h3 class="angebot-title">Eis Extras</h3>
-                        <button class="button angebot-button">
+                        <span class="button angebot-button">
                             <i class='bx bx-category angebot-icon'></i>
-                        </button>
-                    </div>
+                        </span>
+                    </a>
 
                     <!-- SPEISEKARTE DOWNLOAD ==> DERZEIT DEAKTIVIERT ==> REAKTIVIEREN??
                     <section class="section speisekarte" id="speisekarte">
@@ -244,7 +247,7 @@
                         <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x476d07ed57384769:0x7e1fc0d488b1257b?sa=X&ved=1t:8290&ictx=111" target="_blank" rel="noopener noreferrer"  class="button">Weiter zum Mergenthalerplatz</a>
                     </div>
 
-                    <img src="assets/img/discount-img.webp" alt="" class="discount-img">
+                    <img src="assets/img/discount-img.webp" alt="Eismacherei Gutscheine" class="discount-img" loading="lazy">
                 </div>
             </section>
 
@@ -257,32 +260,46 @@
                             Wir verwenden ausschließlich hochwertige Zutaten. 
                             Genau das macht unser Eis besonders und brachte uns die Auszeichnung als beliebtester Eissalon laut <a href="https://www.falstaff.com/at/news/das-sind-die-beliebtesten-eissalons-oesterreichs-2020" class="footer-link">FALSTAFF im Sommer 2020</a>.
                         </p>
-                        <p class="about-description hidden" id="moreTXT">Unsere Leidenschaft?<br>
-                            Echtes Eis mit echtem Geschmack.<br><br> 
-                            Unser Antrieb?<br>
-                            Kreativität, Qualität und Liebe zu jedem Detail.
-                            <br><br>Wir entwickeln laufend neue Sorten, setzen auf traditionelle italienische Rezepte und kombinieren sie mit frischen Ideen 
-                            – vom klassischen Gelato bis zu veganen Fruchtsorten und Spezialitäten für Vierbeiner.<br><br>
-                            Unser Credo:<br>
-                            Frisch. Handgemacht. Hausgemacht. Jeden Tag.
-                            Wir setzen konsequent auf frische Milch – keine Pulvermischung, keine Kompromisse. 
-                            Damit gehören wir zu den wenigen Eisdielen, die echte Milch als Basis für ihr Eis verwenden. 
-                            Das schmeckt man mit jedem Löffel.
-                            <img src="assets/img/kuh.webp" alt="Frische Milch für unser Eis" class="about2-img">
-                        </p>
+                        <div class="about-more" id="moreTXT">
+                            <p class="about-description">Unsere Leidenschaft?<br>
+                                Echtes Eis mit echtem Geschmack.<br><br> 
+                                Unser Antrieb?<br>
+                                Kreativität, Qualität und Liebe zu jedem Detail.
+                                <br><br>Wir entwickeln laufend neue Sorten, setzen auf traditionelle italienische Rezepte und kombinieren sie mit frischen Ideen 
+                                – vom klassischen Gelato bis zu veganen Fruchtsorten und Spezialitäten für Vierbeiner.<br><br>
+                                Unser Credo:<br>
+                                Frisch. Handgemacht. Hausgemacht. Jeden Tag.
+                                Wir setzen konsequent auf frische Milch – keine Pulvermischung, keine Kompromisse. 
+                                Damit gehören wir zu den wenigen Eisdielen, die echte Milch als Basis für ihr Eis verwenden. 
+                                Das schmeckt man mit jedem Löffel.
+                                <img src="assets/img/kuh.webp" alt="Frische Milch für unser Eis" class="about2-img" loading="lazy">
+                            </p>
+                        </div>
                         <a class="button" id="mehr">Mehr erfahren</a>
                     </div>
 
-                    <img src="assets/img/about-img.webp" alt="" class="about-img">
+                    <img src="assets/img/about-img.webp" alt="Eistüte der Eismacherei" class="about-img" loading="lazy">
                 </div>
             </section>
+
+            <!--   SHOWCASE (Bilder-Marquee)   -->
+            <section class="section showcase" id="showcase" aria-label="Impressionen aus der Vitrine">
+                <h2 class="section-title">Frisch aus der Vitrine</h2>
+
+                <div class="showcase-band">
+                    <div class="showcase-track" id="showcase-track">
+                        <!-- Bilder werden von main.js eingefügt -->
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!--   FOOTER   -->
             <footer class="footer section" id="footer">
                 <div class="footer-container container grid">
                     <div class="footer-content">
                         <a href="#" class="footer-logo">
-                            <img src="assets/img/logo.webp" alt="" class="footer-logo-img">
+                            <img src="assets/img/logo.webp" alt="Eismacherei Logo" class="footer-logo-img" loading="lazy">
                             Eismacherei
                         </a>
                         
@@ -349,8 +366,8 @@
 
                 <span class="footer-copy">&#169; 2025 Eismacherei</span>
 
-                <img src="assets/img/footer1-img.webp" alt="" class="footer-img-one">
-                <img src="assets/img/footer2-img.webp" alt="" class="footer-img-two">
+                <img src="assets/img/footer1-img.webp" alt="" class="footer-img-one" loading="lazy">
+                <img src="assets/img/footer2-img.webp" alt="" class="footer-img-two" loading="lazy">
             </footer>
 
             <script src="assets/js/main.js"></script>

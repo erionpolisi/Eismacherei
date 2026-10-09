@@ -1,3 +1,5 @@
+// assets/js/eis.js — renders sortiment cards from JSON
+
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".angebot-container");
   if (!container) return;
@@ -11,30 +13,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!res.ok) throw new Error(`Fehler beim Laden von ${id}.json`);
     let daten = await res.json();
 
-    // Vegan-Filter
     if (isVeganOnly) {
-      daten = daten.filter(e => e.vegan);
+      daten = daten.filter(eis => eis.vegan);
     }
 
-    // 🐶 Hundeeis → kein Split
+    // Hundeeis: single grid, no main/optional split
     if (id === "hund") {
-      const wrapper = document.createElement("div");
-      wrapper.className = "sortiment main";
-
-      const grid = document.createElement("div");
-      grid.className = "card-grid";
-
-      daten.forEach(item => grid.appendChild(createCard(item)));
-
-      wrapper.appendChild(grid);
-      container.appendChild(wrapper);
+      container.appendChild(createGroup(null, "main", daten));
       return;
     }
 
-
-    // Split
-    const haupt = daten.filter(e => e.hauptsortiment);
-    const optional = daten.filter(e => !e.hauptsortiment);
+    const haupt = daten.filter(eis => eis.hauptsortiment);
+    const optional = daten.filter(eis => !eis.hauptsortiment);
 
     if (haupt.length) {
       container.appendChild(createGroup("Hauptsortiment", "main", haupt));
@@ -43,10 +33,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (optional.length) {
       container.appendChild(createGroup("Optional", "optional", optional));
     }
-
   } catch (err) {
     console.error(err);
-    container.innerHTML = "<p>Fehler beim Laden der Inhalte</p>";
+    const error = document.createElement("p");
+    error.textContent = "Fehler beim Laden der Inhalte";
+    container.replaceChildren(error);
   }
 });
 
@@ -56,28 +47,19 @@ function createGroup(title, variant, items) {
   const wrapper = document.createElement("div");
   wrapper.className = `sortiment ${variant}`;
 
-  const heading = document.createElement("h3");
-  heading.className = "group-title";
-  heading.textContent = title;
+  if (title) {
+    const heading = document.createElement("h3");
+    heading.className = "group-title";
+    heading.textContent = title;
+    wrapper.appendChild(heading);
+  }
 
   const grid = document.createElement("div");
   grid.className = "card-grid";
-
   items.forEach(item => grid.appendChild(createCard(item)));
 
-  wrapper.appendChild(heading);
   wrapper.appendChild(grid);
   return wrapper;
-}
-
-/* ========== HUND / SINGLE GRID ========== */
-
-function renderSingleGrid(container, items) {
-  const grid = document.createElement("div");
-  grid.className = "card-grid";
-
-  items.forEach(item => grid.appendChild(createCard(item)));
-  container.appendChild(grid);
 }
 
 /* ========== CARD ========== */
@@ -86,21 +68,47 @@ function createCard(eis) {
   const card = document.createElement("div");
   card.className = "angebot-content";
   card.style.backgroundColor = eis.color || "var(--container-color)";
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", eis.title || "");
 
-  card.innerHTML = `
-    <div class="flip-inner">
-      <div class="front">
-        <img src="${eis.image}" alt="${eis.alt}" class="angebot-img">
-        <p class="angebot-title">${eis.title}</p>
-      </div>
-      <div class="back">
-        <p class="angebot-subtitle">${eis.description || ""}</p>
-      </div>
-    </div>
-  `;
+  const inner = document.createElement("div");
+  inner.className = "flip-inner";
 
-  card.addEventListener("click", () => {
-    card.classList.toggle("flipped");
+  const front = document.createElement("div");
+  front.className = "front";
+
+  const img = document.createElement("img");
+  img.src = eis.image;
+  img.alt = eis.alt || eis.title || "";
+  img.className = "angebot-img";
+  img.loading = "lazy";
+
+  const cardTitle = document.createElement("p");
+  cardTitle.className = "angebot-title";
+  cardTitle.textContent = eis.title || "";
+
+  front.append(img, cardTitle);
+
+  const back = document.createElement("div");
+  back.className = "back";
+
+  const description = document.createElement("p");
+  description.className = "angebot-subtitle";
+  description.textContent = eis.description || "";
+
+  back.appendChild(description);
+  inner.append(front, back);
+  card.appendChild(inner);
+
+  const flip = () => card.classList.toggle("flipped");
+
+  card.addEventListener("click", flip);
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      flip();
+    }
   });
 
   return card;
