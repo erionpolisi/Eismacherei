@@ -868,6 +868,64 @@ input{
   to{ transform: translateX(-50%); }
 }
 
+/*  VITRINE — Blick in die Eistheke  */
+.vitrine-container{
+  gap: 1.25rem;
+}
+
+.vitrine-card{
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 3px solid hsla(0, 0%, 100%, .85);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.vitrine-card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.vitrine-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.vitrine-card:hover .vitrine-img{
+  transform: scale(1.04);
+}
+
+.vitrine-caption{
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 1rem .9rem;
+  background: linear-gradient(180deg, transparent, hsla(0, 0%, 0%, .55));
+  color: #fff;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  text-shadow: 0 1px 6px hsla(0, 0%, 0%, .45);
+}
+
+.vitrine-card--wide .vitrine-img{ height: 230px; }
+.vitrine-card--tall .vitrine-img{ height: 380px; }
+
+@media screen and (min-width: 767px){
+  .vitrine-container{
+    grid-template-columns: 1.6fr 1fr;
+    align-items: stretch;
+    gap: 1.5rem;
+    max-width: 1024px;
+  }
+
+  .vitrine-card--wide .vitrine-img,
+  .vitrine-card--tall .vitrine-img{ height: 460px; }
+}
+
 /*  PRODUCTS  */
 .angebot-container{
   grid-template-columns: repeat(2, 1fr);

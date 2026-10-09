@@ -187,7 +187,7 @@ document.addEventListener('keydown', (e) => {
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         const revealEls = document.querySelectorAll(
-            '.section-title, .category-data, .angebot-container .angebot-content, .discount-container, .about-data, .about-img, .new-container'
+            '.section-title, .category-data, .vitrine-card, .angebot-container .angebot-content, .discount-container, .about-data, .about-img, .new-container'
         );
 
         const observer = new IntersectionObserver((entries) => {
