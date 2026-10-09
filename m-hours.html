@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mergenthalerplatz</title>
+  <meta name="description" content="Öffnungszeiten der Eismacherei am Mergenthalerplatz – mit Live-Status und Saisonkalender.">
+  <title>Öffnungszeiten | Eismacherei</title>
 
   <!-- Standard Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=1">
@@ -17,102 +18,86 @@
 
   <!-- Android / Progressive Web App -->
   <link rel="manifest" href="assets/img/site.webmanifest">
-  
+
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/hours.css">
 </head>
 
 <body>
 
-    <a href="index.html" class="back-button" id="zrk-btn">← Zurück</a>
+  <a href="index.html" class="back-button" id="zrk-btn">← Zurück</a>
 
-  <section class="hours-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Mergenthalerplatz</h2>
-            <p class="section-subtitle">Täglich geöffnet, auch an Sonn- und Feiertagen!</p>
-        </div>          
+  <main class="main">
+    <section class="section hours-section">
+      <div class="hours-container">
 
-      <div class="hours-content">
-        <p>März, April, Oktober</p>
-        <h3 class="hours-time">Mo–So: 11 bis 20 Uhr</h3>
+        <header class="section-header">
+          <h2 class="section-title">Mergenthalerplatz</h2>
+          <p class="section-subtitle">Täglich geöffnet, auch an Sonn- und Feiertagen!</p>
 
-        <p>Mai, September</p>
-        <h3 class="hours-time">Mo–So: 11 bis 21 Uhr</h3>
+          <div class="status-pill" id="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="status-text">Saisonzeiten siehe unten</span>
+          </div>
+        </header>
 
-        <p>Juni</p>
-        <h3 class="hours-time">Mo–Fr: 09 bis 22 Uhr<br>Sa–So: 11 bis 22 Uhr</h3>
+        <!-- Saisonkarten im Kochbuchstil -->
+        <div class="season-grid">
+          <article class="season-card">
+            <span class="season-icon" aria-hidden="true">🌸</span>
+            <h3 class="season-title">Frühling & Herbst</h3>
+            <p class="season-months">März · April · Oktober</p>
+            <p class="season-time">Mo–So<br>11 – 20 Uhr</p>
+          </article>
 
-        <p>Juli, August</p>
-        <h3 class="hours-time">Mo–So: 11 bis 22 Uhr</h3>
+          <article class="season-card">
+            <span class="season-icon" aria-hidden="true">🌤️</span>
+            <h3 class="season-title">Vor- & Nachsaison</h3>
+            <p class="season-months">Mai · September</p>
+            <p class="season-time">Mo–So<br>11 – 21 Uhr</p>
+          </article>
 
-        <p>November – Februar</p>
-        <h3 class="hours-time">Geschlossen</h3>
+          <article class="season-card">
+            <span class="season-icon" aria-hidden="true">🍦</span>
+            <h3 class="season-title">Juni</h3>
+            <p class="season-months">Start in den Sommer</p>
+            <p class="season-time">Mo–Fr · 9 – 22 Uhr<br>Sa–So · 11 – 22 Uhr</p>
+          </article>
+
+          <article class="season-card">
+            <span class="season-icon" aria-hidden="true">☀️</span>
+            <h3 class="season-title">Hochsommer</h3>
+            <p class="season-months">Juli · August</p>
+            <p class="season-time">Mo–So<br>11 – 22 Uhr</p>
+          </article>
+
+          <article class="season-card season-card--winter">
+            <span class="season-icon" aria-hidden="true">❄️</span>
+            <p class="season-time">November – Februar · Winterpause</p>
+          </article>
+        </div>
+
+        <!-- Dynamischer Saisonkalender -->
+        <div class="calendar-card">
+          <p class="calendar-eyebrow">Saisonkalender</p>
+
+          <div class="calendar-head">
+            <button class="calendar-nav" id="cal-prev" aria-label="Vorheriger Monat">&#10094;</button>
+            <h3 class="calendar-month" id="cal-title">&nbsp;</h3>
+            <button class="calendar-nav" id="cal-next" aria-label="Nächster Monat">&#10095;</button>
+          </div>
+
+          <div class="calendar-weekdays" id="cal-weekdays"></div>
+          <div class="calendar-days" id="cal-days"></div>
+
+          <p class="calendar-legend">Zeiten = geöffnet (Uhr) &nbsp;·&nbsp; „–“ = geschlossen &nbsp;·&nbsp; heutiger Tag ist markiert</p>
+        </div>
+
       </div>
+    </section>
+  </main>
 
-
-      <div id="status" style="margin-top: 2rem; font-size: 1.2rem; font-weight: bold;"></div> <!--Öffnungszeiten-->
-
-    </div>
-  </section>
-
-  <script>
-    function checkOpenStatus() {
-      const now = new Date();
-      const month = now.getMonth(); // Jan = 0
-      const hour = now.getHours();
-      const day = now.getDay(); // So = 0, Mo = 1
-      const status = document.getElementById('status');
-
-      let openHour = null;
-      let closeHour = null;
-
-      // Nov – Feb: geschlossen
-      if ([10, 11, 0, 1].includes(month)) {
-        status.innerText = "Derzeit geschlossen (Winterpause)";
-        status.style.color = "black";
-        return;
-      }
-
-      // März, April, Oktober → 11–20
-      if ([2, 3, 9].includes(month)) {
-        openHour = 11;
-        closeHour = 20;
-      }
-
-      // Mai, September → 11–21
-      else if ([4, 8].includes(month)) {
-        openHour = 11;
-        closeHour = 21;
-      }
-
-      // Juli, August → 11–22
-      else if ([6, 7].includes(month)) {
-        openHour = 11;
-        closeHour = 22;
-      }
-
-      // Juni → Mo–Fr 9–22, Sa–So 11–22
-      else if (month === 5) {
-        if (day >= 1 && day <= 5) {
-          openHour = 9;
-          closeHour = 22;
-        } else {
-          openHour = 11;
-          closeHour = 22;
-        }
-      }
-
-      if (openHour === null || closeHour === null) return;
-
-      const isOpen = hour >= openHour && hour < closeHour;
-      status.innerText = isOpen ? "Wir haben geöffnet!" : "Gerade geschlossen";
-      status.style.color = isOpen ? "green" : "black";
-    }
-
-    checkOpenStatus();
-  </script>
+  <script src="assets/js/hours.js"></script>
 </body>
 
 </html>
-

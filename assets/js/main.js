@@ -205,3 +205,76 @@ document.addEventListener('keydown', (e) => {
             observer.observe(el);
         });
     }
+
+/* ========== FOOTER EASTER EGGS ========== */
+const footerEl = document.getElementById('footer');
+const crocImg = document.querySelector('.footer-img-one');
+const kittyImg = document.querySelector('.footer-img-two');
+
+// Position eines Elements relativ zum Footer (fx/fy = Anker im Element)
+function footerPoint(el, fx = 0.5, fy = 0.5) {
+    const footerRect = footerEl.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
+    return {
+        x: rect.left - footerRect.left + rect.width * fx,
+        y: rect.top - footerRect.top + rect.height * fy,
+        footerWidth: footerRect.width
+    };
+}
+
+if (footerEl && crocImg) {
+    crocImg.addEventListener('click', () => {
+        if (footerEl.querySelectorAll('.croc-paw').length > 24) return;
+
+        const { x, y, footerWidth } = footerPoint(crocImg, .35, .45);
+        const dir = x > footerWidth / 2 ? -1 : 1; // immer Richtung freie Fläche laufen
+
+        for (let i = 0; i < 7; i++) {
+            const paw = document.createElement('span');
+            paw.className = 'croc-paw';
+            paw.textContent = '🐾';
+
+            const zigzag = (i % 2 === 0 ? -1 : 1) * 15;
+            paw.style.left = `${x + dir * (i + 1) * 54}px`;
+            paw.style.top = `${y - (i + 1) * 22 + zigzag}px`;
+            paw.style.setProperty('--paw-rot', `${dir * (i % 2 === 0 ? 30 : 55)}deg`);
+            paw.style.animationDelay = `${i * 150}ms`;
+
+            footerEl.appendChild(paw);
+            setTimeout(() => paw.remove(), 2100 + i * 150);
+        }
+    });
+}
+
+if (footerEl && kittyImg) {
+    kittyImg.addEventListener('click', () => {
+        if (footerEl.querySelector('.kitty-bow')) return;
+
+        const { x, y } = footerPoint(kittyImg, .5, .4);
+
+        const bow = document.createElement('span');
+        bow.className = 'kitty-bow';
+        bow.textContent = '🎀';
+        bow.style.left = `${x}px`;
+        bow.style.top = `${y}px`;
+        footerEl.appendChild(bow);
+        setTimeout(() => bow.remove(), 1400);
+
+        for (let i = 0; i < 8; i++) {
+            const sparkle = document.createElement('span');
+            sparkle.className = 'kitty-sparkle';
+            sparkle.textContent = i % 2 === 0 ? '✨' : '⭐';
+
+            const angle = (Math.PI * 2 * i) / 8 + Math.random() * .5;
+            const distance = 55 + Math.random() * 30;
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            sparkle.style.setProperty('--dx', `${Math.round(Math.cos(angle) * distance)}px`);
+            sparkle.style.setProperty('--dy', `${Math.round(Math.sin(angle) * distance)}px`);
+            sparkle.style.animationDelay = `${i * 30}ms`;
+
+            footerEl.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1250 + i * 30);
+        }
+    });
+}
