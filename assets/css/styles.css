@@ -4,6 +4,7 @@
   src: url('../font/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -11,6 +12,7 @@
   src: url('../font/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -18,6 +20,7 @@
   src: url('../font/Poppins-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -25,6 +28,7 @@
   src: url('../font/Poppins-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 
@@ -196,6 +200,7 @@ input{
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
+  transition: box-shadow .3s;
 }
 
 /*  NAV  */
@@ -226,6 +231,9 @@ input{
 }
 
 .nav-toggle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.25rem;
   cursor: pointer;
 }
@@ -241,6 +249,17 @@ input{
     transition: .4s;
     z-index: var(--z-fixed);
     border-radius: 0 0 1.5rem 1.5rem;
+  }
+
+  /* Equal flex sides keep the burger icon perfectly centered */
+  .nav-logo{
+    flex: 1;
+    margin-right: 0;
+  }
+
+  .nav .footer-social{
+    flex: 1;
+    justify-content: flex-end;
   }
 }
 
@@ -274,9 +293,9 @@ input{
   top: 0;
 }
 
-/* Change background header */
+/* Soft shadow once the page is scrolled */
 .scroll-header{
-  background: var(--container-color);
+  box-shadow: 0 2px 12px hsla(330, 70%, 30%, .15);
 }
 
 /* Active link */
@@ -304,10 +323,6 @@ input{
   display: grid;
   position: relative;
   padding-top: 2rem;
-  background-image: 'assets/img/home-background-img.png';
-  background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .home-img {
@@ -453,6 +468,7 @@ input{
   border-radius: .5rem;
   font-weight: var(--font-medium);
   transition: .3s;
+  cursor: pointer;
 }
 
 .button2{
@@ -463,6 +479,7 @@ input{
   border-radius: .5rem;
   font-weight: var(--font-medium);
   transition: .3s;
+  cursor: pointer;
 }
 
 .button:hover{
@@ -505,7 +522,10 @@ input{
 }
 
 .category-data{
+  display: block;
   text-align: center;
+  color: inherit;
+  cursor: pointer;
 }
 
 .category-img{
@@ -566,12 +586,15 @@ input{
 }
 
 .angebot-content{
+  display: block;
   position: relative;
   background: var(--container-color);
   border-radius: 1rem;
   padding: 1.5rem 0 1rem 0;
   text-align: center;
   overflow: hidden;
+  color: inherit;
+  cursor: pointer;
 }
 
 .angebot-img{

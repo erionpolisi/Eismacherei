@@ -1,106 +1,113 @@
 // assets/js/main.js
 
-/*  SHOW MENU  */
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close');
+/* ========== MOBILE MENU ========== */
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
-    });
-}
-
-if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-    });
-}
-
-/*  REMOVE MENU MOBILE  */
-const navLinks = document.querySelectorAll('.nav-link');
-
-function linkAction() {
-    navMenu.classList.remove('show-menu');
-}
-
-navLinks.forEach(n => n.addEventListener('click', linkAction));
-
-/*  SCROLL ACTIVE LINK  */
-const sections = document.querySelectorAll('section[id]'); 
-
-function scrollActive() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id');
-
-        const navLink = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
-
-        if (navLink) {
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLink.classList.add('active-link');
-            } else {
-                navLink.classList.remove('active-link');
-            }
+/* Lets Enter/Space trigger click on non-button elements with role="button" */
+function onActivate(el, handler) {
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handler();
         }
     });
 }
 
-window.addEventListener('scroll', scrollActive);
+if (navToggle && navMenu) {
+    onActivate(navToggle, () => navMenu.classList.add('show-menu'));
+}
 
-/*  NEXT LOCATION LOGIC  */
+if (navClose && navMenu) {
+    onActivate(navClose, () => navMenu.classList.remove('show-menu'));
+}
+
+/* Close mobile menu after choosing a link */
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu) navMenu.classList.remove('show-menu');
+    });
+});
+
+/* ========== SCROLL BEHAVIOUR (active link + header shadow) ========== */
+const sections = document.querySelectorAll('section[id]');
+const header = document.getElementById('header');
+let isScrolling = false;
+let scrollTimeout = null;
+
+function highlightActiveLink() {
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 50;
+        const navLink = document.querySelector(`.nav-menu a[href*="${section.id}"]`);
+
+        if (!navLink) return;
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink.classList.add('active-link');
+        } else {
+            navLink.classList.remove('active-link');
+        }
+    });
+}
+
+function onScroll() {
+    highlightActiveLink();
+
+    if (header) header.classList.toggle('scroll-header', window.scrollY > 40);
+
+    // Block keyboard section-jumps while the page is still scrolling
+    isScrolling = true;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => { isScrolling = false; }, 200);
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ========== LOCATION SLIDES (home) ========== */
 const slides = document.querySelectorAll('.home-page');
 let currentSlide = 0;
 
-slides.forEach((slide, index) => {
-    slide.style.display = index === 0 ? 'block' : 'none';
-});
-
-function nextSlide() {
-    slides[currentSlide].style.display = 'none';
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].style.display = 'block';
-    sessionStorage.setItem('currentSlideIndex', currentSlide);
+function showSlide(index) {
+    if (slides.length === 0) return;
+    currentSlide = ((index % slides.length) + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+        slide.style.display = i === currentSlide ? 'block' : 'none';
+    });
+    sessionStorage.setItem('currentSlideIndex', String(currentSlide));
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const savedSlide = sessionStorage.getItem('currentSlideIndex');
-    if (savedSlide !== null) {
-        slides.forEach((slide) => slide.style.display = 'none');
-        currentSlide = parseInt(savedSlide);
-        slides[currentSlide].style.display = 'block';
-    }
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+// Restore last viewed location (bounds-checked)
+const savedSlide = Number.parseInt(sessionStorage.getItem('currentSlideIndex'), 10);
+showSlide(Number.isInteger(savedSlide) ? savedSlide : 0);
+
+document.querySelectorAll('[data-slide-next]').forEach(button => {
+    onActivate(button, nextSlide);
 });
 
-
-
-
-/* ABOUT US */
+/* ========== ABOUT US (read more) ========== */
 const moreBTN = document.getElementById('mehr');
 const moreTXT = document.getElementById('moreTXT');
 
-    if (moreBTN) {
-        moreBTN.addEventListener('click', () => {
-          const isHidden = moreTXT.classList.toggle('hidden');
-          moreBTN.innerText = isHidden ? 'Mehr erfahren' : 'Weniger anzeigen';
-        });
-      }
+if (moreBTN && moreTXT) {
+    moreBTN.addEventListener('click', () => {
+        const isHidden = moreTXT.classList.toggle('hidden');
+        moreBTN.innerText = isHidden ? 'Mehr erfahren' : 'Weniger anzeigen';
+    });
+}
 
-/*  NAVIGATION PER PFEILTASTEN + Auto-Jump */
+/* ========== ARROW-KEY SECTION NAVIGATION ========== */
 let navIndex = 0;
-let isScrolling = false;
-
-// Erkenne aktives Scrollen
-window.addEventListener('scroll', () => {
-    isScrolling = true;
-    clearTimeout(window.scrollTimeout);
-    window.scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-    }, 200); // 200ms nach Scroll-Ende wieder freigeben
-});
 
 document.addEventListener('keydown', (e) => {
     if (isScrolling || navLinks.length === 0) return;
@@ -113,12 +120,6 @@ document.addEventListener('keydown', (e) => {
         return;
     }
 
-    const nextLink = navLinks[navIndex];
-    nextLink.classList.add('active-link');
-    nextLink.click();
-
+    navLinks[navIndex].click();
     e.preventDefault();
 });
-
-
-

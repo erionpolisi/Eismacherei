@@ -9,3 +9,24 @@ input, textarea {
 input:focus, textarea:focus {
   border-color: var(--first-color);
 }
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  row-gap: 1rem;
+}
+
+.form-status {
+  display: none;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-consent {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.form-gotcha {
+  display: none;
+}

@@ -18,7 +18,7 @@
 
 <body>
 
-<a href="/" class="back-button">← Zurück</a>
+<a href="index.html" class="back-button">← Zurück</a>
 
 <main class="main">
     <section class="section container">
@@ -28,20 +28,22 @@
             id="contact-form"
             action="https://formspree.io/f/xykdkgkq"
             method="POST"
-            class="grid"
-            style="max-width:500px; margin:0 auto; row-gap:1rem;"
+            class="grid contact-form"
             >
             <input type="text" name="name" placeholder="Ihr Name" required>
             <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
             <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
 
+            <!-- Honeypot gegen Spam-Bots (bleibt für Menschen unsichtbar) -->
+            <input type="text" name="_gotcha" class="form-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
             <button type="submit" class="button">
                 Nachricht senden
             </button>
 
-            <p id="form-status" style="display:none; font-size:0.9rem; text-align:center;"></p>
+            <p id="form-status" class="form-status"></p>
 
-            <p style="font-size:0.75rem; text-align:center;">
+            <p class="form-consent">
                 Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Beantwortung Ihrer Anfrage zu.
             </p>
         </form>

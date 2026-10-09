@@ -2,11 +2,16 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     display: flex;
-    scroll-behavior: smooth;
     gap: 1rem;
     padding: 2rem;
     background: #fef6e4;
     position: relative;
+    /* Hide the scrollbar for a clean carousel look */
+    scrollbar-width: none;
+  }
+
+  .scroll-gallery::-webkit-scrollbar {
+    display: none;
   }
 
   .scroll-gallery-inner {
@@ -30,6 +35,7 @@
     height: 40vw;
     max-height: 280px;
     object-fit: cover ;
+    cursor: zoom-in;
   }
 
   .scroll-slide-title {
@@ -69,6 +75,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  cursor: zoom-out;
 }
 
 .image-overlay img {

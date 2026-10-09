@@ -24,7 +24,7 @@
 
 <body>
 
-    <a href="javascript:history.back()" class="back-button" id="zrk-btn">← Zurück</a>
+    <a href="index.html" class="back-button" id="zrk-btn">← Zurück</a>
 
   <section class="hours-section">
     <div class="container">
@@ -55,60 +55,64 @@
 
     </div>
   </section>
+
+  <script>
+    function checkOpenStatus() {
+      const now = new Date();
+      const month = now.getMonth(); // Jan = 0
+      const hour = now.getHours();
+      const day = now.getDay(); // So = 0, Mo = 1
+      const status = document.getElementById('status');
+
+      let openHour = null;
+      let closeHour = null;
+
+      // Nov – Feb: geschlossen
+      if ([10, 11, 0, 1].includes(month)) {
+        status.innerText = "Derzeit geschlossen (Winterpause)";
+        status.style.color = "black";
+        return;
+      }
+
+      // März, April, Oktober → 11–20
+      if ([2, 3, 9].includes(month)) {
+        openHour = 11;
+        closeHour = 20;
+      }
+
+      // Mai, September → 11–21
+      else if ([4, 8].includes(month)) {
+        openHour = 11;
+        closeHour = 21;
+      }
+
+      // Juli, August → 11–22
+      else if ([6, 7].includes(month)) {
+        openHour = 11;
+        closeHour = 22;
+      }
+
+      // Juni → Mo–Fr 9–22, Sa–So 11–22
+      else if (month === 5) {
+        if (day >= 1 && day <= 5) {
+          openHour = 9;
+          closeHour = 22;
+        } else {
+          openHour = 11;
+          closeHour = 22;
+        }
+      }
+
+      if (openHour === null || closeHour === null) return;
+
+      const isOpen = hour >= openHour && hour < closeHour;
+      status.innerText = isOpen ? "Wir haben geöffnet!" : "Gerade geschlossen";
+      status.style.color = isOpen ? "green" : "black";
+    }
+
+    checkOpenStatus();
+  </script>
 </body>
 
-<script>
-function checkOpenStatus() {
-  const now = new Date();
-  const month = now.getMonth(); // Jan = 0
-  const hour = now.getHours();
-  const day = now.getDay(); // So = 0, Mo = 1
-  const status = document.getElementById('status');
-
-  let openHour = null;
-  let closeHour = null;
-
-  // Nov – Feb: geschlossen
-  if ([10, 11, 0, 1].includes(month)) {
-    status.innerText = "Derzeit geschlossen (Winterpause)";
-    status.style.color = "black";
-    return;
-  }
-
-  // März, April, Oktober → 11–20
-  if ([2, 3, 9].includes(month)) {
-    openHour = 11;
-    closeHour = 20;
-  }
-
-  // Mai, September → 11–21
-  else if ([4, 8].includes(month)) {
-    openHour = 11;
-    closeHour = 21;
-  }
-
-  // Juli, August → 11–22
-  else if ([6, 7].includes(month)) {
-    openHour = 11;
-    closeHour = 22;
-  }
-
-  // Juni → Mo–Fr 9–22, Sa–So 11–22
-  else if (month === 5) {
-    if (day >= 1 && day <= 5) {
-      openHour = 9;
-      closeHour = 22;
-    } else {
-      openHour = 11;
-      closeHour = 22;
-    }
-  }
-
-  const isOpen = hour >= openHour && hour < closeHour;
-  status.innerText = isOpen ? "Wir haben geöffnet!" : "Gerade geschlossen";
-  status.style.color = isOpen ? "green" : "black";
-}
-
-checkOpenStatus();
-</script>
+</html>
 
