@@ -20,10 +20,13 @@ html, body {
   }
 
   .hours-content {
-    background: var(--container-color);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
     padding: 2rem 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .hours-content p {

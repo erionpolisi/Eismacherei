@@ -123,3 +123,27 @@ document.addEventListener('keydown', (e) => {
     navLinks[navIndex].click();
     e.preventDefault();
 });
+
+    /* ========== SCROLL REVEAL ========== */
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const revealEls = document.querySelectorAll(
+            '.section-title, .category-data, .angebot-container .angebot-content, .discount-container, .about-data, .about-img, .new-container'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${(i % 3) * 80}ms`;
+            observer.observe(el);
+        });
+    }
