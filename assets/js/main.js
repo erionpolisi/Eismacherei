@@ -207,7 +207,16 @@ document.addEventListener('keydown', (e) => {
     }
 
 /* ========== HERO BUBBLE STICKERS (platzen bei Klick) ========== */
-document.querySelectorAll('.home-group').forEach(group => {
+// Auch das Logo in "Ueber Uns" bekommt Blasen: Wrapper fuer die Positionierung
+const aboutImg = document.querySelector('.about-img');
+if (aboutImg) {
+    const wrap = document.createElement('div');
+    wrap.className = 'bubble-wrap';
+    aboutImg.parentNode.insertBefore(wrap, aboutImg);
+    wrap.appendChild(aboutImg);
+}
+
+document.querySelectorAll('.home-group, .bubble-wrap').forEach(group => {
     [
         { emoji: '🍦', variant: 'home-sticker--ice' },
         { emoji: '🍓', variant: 'home-sticker--berry' }
