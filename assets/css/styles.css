@@ -430,9 +430,8 @@ input{
   padding-top: 2rem;
 }
 
-/* Sweet sticker badges around the hero photo */
-.home-group::before,
-.home-group::after{
+/* Sweet sticker bubbles around the hero photo (clickable, injected by JS) */
+.home-sticker{
   position: absolute;
   display: flex;
   align-items: center;
@@ -445,24 +444,54 @@ input{
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-sm);
   z-index: 2;
-  pointer-events: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: floating 3.2s ease-in-out infinite;
 }
 
-.home-group::before{
-  content: '🍦';
+.home-sticker--ice{
   top: 1rem;
   left: 10%;
   rotate: -10deg;
-  animation: floating 3.2s ease-in-out infinite;
 }
 
-.home-group::after{
-  content: '🍓';
+.home-sticker--berry{
   bottom: -.75rem;
   right: 10%;
   rotate: 8deg;
-  animation: floating 3.2s ease-in-out infinite;
   animation-delay: 1.3s;
+}
+
+/* Platzen & nach 2s wieder herstellen */
+.home-sticker.popped{
+  animation: stickerPop .4s ease-out forwards;
+  pointer-events: none;
+}
+
+.home-sticker.respawn{
+  animation: stickerIn .45s cubic-bezier(.34, 1.56, .64, 1) backwards,
+             floating 3.2s ease-in-out .45s infinite;
+}
+
+.sticker-burst{
+  position: absolute;
+  z-index: 3;
+  font-size: .95rem;
+  translate: -50% -50%;
+  pointer-events: none;
+  animation: sparkleFly .8s ease-out forwards;
+}
+
+@keyframes stickerPop{
+  0%   { opacity: 1; scale: 1; }
+  55%  { opacity: .85; scale: 1.45; filter: blur(1px); }
+  100% { opacity: 0; scale: 1.75; filter: blur(4px); }
+}
+
+@keyframes stickerIn{
+  from { opacity: 0; scale: 0; }
+  to   { opacity: 1; scale: 1; }
 }
 
 .home-img {
