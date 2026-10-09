@@ -1,6 +1,9 @@
 ﻿# Default ignored files
 /shelf/
 /workspace.xml
+/encodings.xml
+/indexLayout.xml
+/vcs.xml
 # Rider ignored files
 /.idea.Eismacherei.iml
 /projectSettingsUpdater.xml
