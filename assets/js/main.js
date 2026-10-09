@@ -206,6 +206,65 @@ document.addEventListener('keydown', (e) => {
         });
     }
 
+/* ========== HERO BUBBLE STICKERS (platzen bei Klick) ========== */
+// Auch das Logo in "Ueber Uns" bekommt Blasen: Wrapper fuer die Positionierung
+const aboutImg = document.querySelector('.about-img');
+if (aboutImg) {
+    const wrap = document.createElement('div');
+    wrap.className = 'bubble-wrap';
+    aboutImg.parentNode.insertBefore(wrap, aboutImg);
+    wrap.appendChild(aboutImg);
+}
+
+document.querySelectorAll('.home-group, .bubble-wrap').forEach(group => {
+    [
+        { emoji: '🍦', variant: 'home-sticker--ice' },
+        { emoji: '🍓', variant: 'home-sticker--berry' }
+    ].forEach(({ emoji, variant }) => {
+        const sticker = document.createElement('span');
+        sticker.className = `home-sticker ${variant}`;
+        sticker.textContent = emoji;
+        sticker.setAttribute('role', 'button');
+        sticker.setAttribute('aria-label', 'Blase platzen lassen');
+        sticker.tabIndex = 0;
+        group.appendChild(sticker);
+
+        onActivate(sticker, () => {
+            if (sticker.classList.contains('popped')) return;
+
+            // Bubble-Burst rund um die Blase
+            const groupRect = group.getBoundingClientRect();
+            const rect = sticker.getBoundingClientRect();
+            const x = rect.left - groupRect.left + rect.width / 2;
+            const y = rect.top - groupRect.top + rect.height / 2;
+
+            for (let i = 0; i < 6; i++) {
+                const bubble = document.createElement('span');
+                bubble.className = 'sticker-burst';
+                bubble.textContent = '🫧';
+                const angle = (Math.PI * 2 * i) / 6 + Math.random() * .6;
+                const distance = 34 + Math.random() * 22;
+                bubble.style.left = `${x}px`;
+                bubble.style.top = `${y}px`;
+                bubble.style.setProperty('--dx', `${Math.round(Math.cos(angle) * distance)}px`);
+                bubble.style.setProperty('--dy', `${Math.round(Math.sin(angle) * distance)}px`);
+                group.appendChild(bubble);
+                setTimeout(() => bubble.remove(), 850);
+            }
+
+            sticker.classList.remove('respawn');
+            sticker.classList.add('popped');
+
+            // Nach 2 Sekunden wieder herstellen
+            setTimeout(() => {
+                sticker.classList.remove('popped');
+                void sticker.offsetWidth; // Reflow: Respawn-Animation neu starten
+                sticker.classList.add('respawn');
+            }, 2000);
+        });
+    });
+});
+
 /* ========== FOOTER EASTER EGGS ========== */
 const footerEl = document.getElementById('footer');
 const crocImg = document.querySelector('.footer-img-one');
