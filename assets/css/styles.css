@@ -430,6 +430,41 @@ input{
   padding-top: 2rem;
 }
 
+/* Sweet sticker badges around the hero photo */
+.home-group::before,
+.home-group::after{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.75rem;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home-group::before{
+  content: '🍦';
+  top: 1rem;
+  left: 10%;
+  rotate: -10deg;
+  animation: floating 3.2s ease-in-out infinite;
+}
+
+.home-group::after{
+  content: '🍓';
+  bottom: -.75rem;
+  right: 10%;
+  rotate: 8deg;
+  animation: floating 3.2s ease-in-out infinite;
+  animation-delay: 1.3s;
+}
+
 .home-img {
   height: 220px;
   justify-self: center;
@@ -498,6 +533,8 @@ input{
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* Keeps descenders (g, p) inside the clipped background area */
+  padding-bottom: .14em;
 }
 
 .home-description{
@@ -694,6 +731,31 @@ input{
   margin-bottom: var(--mb-2);
 }
 
+/* Animated "Mehr erfahren" expand (grid-rows trick = smooth at any height) */
+.about-more{
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: grid-template-rows .7s cubic-bezier(.33, 1, .68, 1),
+              opacity .55s ease,
+              transform .7s cubic-bezier(.33, 1, .68, 1),
+              margin-bottom .7s cubic-bezier(.33, 1, .68, 1);
+}
+
+.about-more > .about-description{
+  min-height: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.about-more.open{
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: none;
+  margin-bottom: var(--mb-2);
+}
+
 .about-img{
   width: 200px;
   justify-self: center;
@@ -713,10 +775,62 @@ input{
   box-shadow: var(--shadow-sm);
 }
 
-#about {
-  min-height: 100vh;
+
+
+
+/*  SHOWCASE — endless image marquee  */
+.showcase{
+  padding-bottom: 3rem;
 }
 
+.showcase-band{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  padding: 1rem 0 1.5rem;
+}
+
+.showcase-track{
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.showcase-band:hover .showcase-track{
+  animation-play-state: paused;
+}
+
+.showcase-item{
+  display: block;
+  margin-right: 1.25rem;
+}
+
+.showcase-item img{
+  display: block;
+  width: 240px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 3px solid hsla(0, 0%, 100%, .85);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.showcase-item:hover img{
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: var(--shadow-md);
+}
+
+@media screen and (max-width: 767px){
+  .showcase-item img{
+    width: 170px;
+    height: 120px;
+  }
+}
+
+@keyframes marquee{
+  to{ transform: translateX(-50%); }
+}
 
 /*  PRODUCTS  */
 .angebot-container{
@@ -1151,7 +1265,7 @@ input{
   }
   .home-img{
     height: 400px;
-    transform: translateY(-3rem);
+    transform: translateY(1rem);
   }
   .home-indicator{
     top: initial;
@@ -1250,6 +1364,22 @@ input{
   0% { transform: translate(0,  0px); }
   50%  { transform: translate(0, 15px); }
   100%   { transform: translate(0, -0px); }   
+}
+
+/* Location switch animation */
+.home-page.slide-in{
+  animation: slideIn .65s cubic-bezier(.33, 1, .68, 1) both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(42px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /*  SCROLL REVEAL (classes are added via JS only)  */

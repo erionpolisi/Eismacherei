@@ -39,12 +39,16 @@ const header = document.getElementById('header');
 let isScrolling = false;
 let scrollTimeout = null;
 
+// Must exceed the sections' scroll-margin-top, otherwise the
+// highlight lags one section behind after an anchor jump.
+const NAV_HIGHLIGHT_OFFSET = 90;
+
 function highlightActiveLink() {
     const scrollY = window.scrollY;
 
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 50;
+        const sectionTop = section.offsetTop - NAV_HIGHLIGHT_OFFSET;
         const navLink = document.querySelector(`.nav-menu a[href*="${section.id}"]`);
 
         if (!navLink) return;
@@ -74,11 +78,14 @@ window.addEventListener('scroll', onScroll, { passive: true });
 const slides = document.querySelectorAll('.home-page');
 let currentSlide = 0;
 
-function showSlide(index) {
+function showSlide(index, animate = true) {
     if (slides.length === 0) return;
     currentSlide = ((index % slides.length) + slides.length) % slides.length;
     slides.forEach((slide, i) => {
-        slide.style.display = i === currentSlide ? 'block' : 'none';
+        const isActive = i === currentSlide;
+        slide.style.display = isActive ? 'block' : 'none';
+        slide.classList.remove('slide-in');
+        if (isActive && animate) slide.classList.add('slide-in');
     });
     sessionStorage.setItem('currentSlideIndex', String(currentSlide));
 }
@@ -87,23 +94,74 @@ function nextSlide() {
     showSlide(currentSlide + 1);
 }
 
-// Restore last viewed location (bounds-checked)
+// Restore last viewed location (bounds-checked, without entry animation)
 const savedSlide = Number.parseInt(sessionStorage.getItem('currentSlideIndex'), 10);
-showSlide(Number.isInteger(savedSlide) ? savedSlide : 0);
+showSlide(Number.isInteger(savedSlide) ? savedSlide : 0, false);
 
 document.querySelectorAll('[data-slide-next]').forEach(button => {
     onActivate(button, nextSlide);
 });
 
-/* ========== ABOUT US (read more) ========== */
+/* ========== ABOUT US (animated read more) ========== */
 const moreBTN = document.getElementById('mehr');
 const moreTXT = document.getElementById('moreTXT');
 
 if (moreBTN && moreTXT) {
     moreBTN.addEventListener('click', () => {
-        const isHidden = moreTXT.classList.toggle('hidden');
-        moreBTN.innerText = isHidden ? 'Mehr erfahren' : 'Weniger anzeigen';
+        const isOpen = moreTXT.classList.toggle('open');
+        moreBTN.innerText = isOpen ? 'Weniger anzeigen' : 'Mehr erfahren';
     });
+}
+
+/* ========== SHOWCASE MARQUEE (Eistorten / Torten / Mehlspeisen gemischt) ========== */
+const showcaseTrack = document.getElementById('showcase-track');
+
+if (showcaseTrack) {
+    const showcaseImages = [
+        { src: 'assets/img/torten/torte1-img.webp', href: 'angebot-html/torten.html', alt: 'Motivtorte' },
+        { src: 'assets/img/eistorte/torte1-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/mehlspeisen/mehlspeise1-img.webp', href: 'angebot-html/mehlspeisen.html', alt: 'Mehlspeise' },
+        { src: 'assets/img/torten/torte2-img.webp', href: 'angebot-html/torten.html', alt: 'Malakofftorte' },
+        { src: 'assets/img/eistorte/torte2-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/mehlspeisen/mehlspeise2-img.webp', href: 'angebot-html/mehlspeisen.html', alt: 'Mehlspeise' },
+        { src: 'assets/img/torten/torte5-img.webp', href: 'angebot-html/torten.html', alt: 'Schnitten' },
+        { src: 'assets/img/eistorte/torte3-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/mehlspeisen/mehlspeise3-img.webp', href: 'angebot-html/mehlspeisen.html', alt: 'Mehlspeise' },
+        { src: 'assets/img/torten/torte8-img.webp', href: 'angebot-html/torten.html', alt: 'Esterhazytorte' },
+        { src: 'assets/img/eistorte/torte4-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/mehlspeisen/mehlspeise4-img.webp', href: 'angebot-html/mehlspeisen.html', alt: 'Mehlspeise' },
+        { src: 'assets/img/torten/torte10-img.webp', href: 'angebot-html/torten.html', alt: 'Mozarttorte' },
+        { src: 'assets/img/eistorte/torte5-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/mehlspeisen/mehlspeise5-img.webp', href: 'angebot-html/mehlspeisen.html', alt: 'Mehlspeise' },
+        { src: 'assets/img/torten/torte6-img.webp', href: 'angebot-html/torten.html', alt: 'Motivtorte' },
+        { src: 'assets/img/eistorte/torte6-img.webp', href: 'angebot-html/eistorte.html', alt: 'Eistorte' },
+        { src: 'assets/img/torten/torte3-img.webp', href: 'angebot-html/torten.html', alt: 'Motivtorte' }
+    ];
+
+    const createShowcaseItem = ({ src, href, alt }, isDuplicate) => {
+        const link = document.createElement('a');
+        link.className = 'showcase-item';
+        link.href = href;
+        if (isDuplicate) {
+            link.setAttribute('aria-hidden', 'true');
+            link.tabIndex = -1;
+        }
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = isDuplicate ? '' : alt;
+        img.loading = 'lazy';
+        img.draggable = false;
+
+        link.appendChild(img);
+        return link;
+    };
+
+    // Two copies make the -50% marquee loop seamless
+    const fragment = document.createDocumentFragment();
+    showcaseImages.forEach(data => fragment.appendChild(createShowcaseItem(data, false)));
+    showcaseImages.forEach(data => fragment.appendChild(createShowcaseItem(data, true)));
+    showcaseTrack.appendChild(fragment);
 }
 
 /* ========== ARROW-KEY SECTION NAVIGATION ========== */
