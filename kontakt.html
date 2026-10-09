@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktieren Sie die Eismacherei in Wien – per Formular, E-Mail oder Telefon. Wir freuen uns auf Ihre Nachricht.">
     <title>Kontakt | Eismacherei</title>
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=1">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png?v=1">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png?v=1">
+
+    <!-- Apple Touch Icon (für iOS, iPadOS Homescreen) -->
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=1">
+
+    <!-- Android / Progressive Web App -->
+    <link rel="manifest" href="assets/img/site.webmanifest">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/boxicons-2.1.4/css/boxicons.min.css">
@@ -18,67 +25,180 @@
 
 <body>
 
-<a href="index.html" class="back-button">← Zurück</a>
+<!--   HEADER (wie index.html)   -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/img/logo.webp" alt="Eismacherei Logo" class="nav-logo-img">
+      Eismacherei
+    </a>
+
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#category" class="nav-link">Eissorten</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#angebot" class="nav-link">Angebot</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#discount" class="nav-link">Gutscheine</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#about" class="nav-link">Über Uns</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontakt.html" class="button button-Kontakt" id="Kontakt">Kontakt</a>
+        </li>
+      </ul>
+
+      <div class="nav-close" id="nav-close" role="button" aria-label="Menü schließen" tabindex="0">
+        <i class='bx bx-x'></i>
+      </div>
+    </div>
+
+    <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Menü öffnen" tabindex="0">
+      <i class='bx bx-grid-alt'></i>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.tiktok.com/@eismachereieismac" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+        <i class='bx bxl-tiktok'></i>
+      </a>
+      <a href="https://www.instagram.com/eismacherei_wien_22" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+        <i class='bx bxl-instagram-alt'></i>
+      </a>
+      <a href="https://www.facebook.com/EISMACHEREI" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+        <i class='bx bxl-facebook'></i>
+      </a>
+    </div>
+  </nav>
+</header>
 
 <main class="main">
-    <section class="section container">
+    <section class="section contact" id="kontakt">
         <h2 class="section-title">Kontakt</h2>
+        <p class="contact-intro">
+            Ob Fragen, Tortenbestellungen oder Feedback – wir freuen uns auf Ihre Nachricht!
+        </p>
 
-        <form
-            id="contact-form"
-            action="https://formspree.io/f/xykdkgkq"
-            method="POST"
-            class="grid contact-form"
-            >
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
-            <textarea name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+        <div class="contact-container">
+            <!-- Info-Panel -->
+            <aside class="contact-info">
+                <h3 class="contact-info-title">Eismacherei</h3>
+                <p class="contact-info-text">
+                    Sie erreichen uns direkt über das Formular – oder ganz klassisch:
+                </p>
 
-            <!-- Honeypot gegen Spam-Bots (bleibt für Menschen unsichtbar) -->
-            <input type="text" name="_gotcha" class="form-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <ul class="contact-info-list">
+                    <li>
+                        <i class='bx bx-map'></i>
+                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x476d07ed57384769:0x7e1fc0d488b1257b?sa=X&ved=1t:8290&ictx=111" target="_blank" rel="noopener noreferrer">Mergenthalerpl. 1, 1220 Wien</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-envelope'></i>
+                        <a href="mailto:eismacherei22@gmail.com">eismacherei22@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-phone'></i>
+                        <a href="tel:+436763909962">+43 676 3909962</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-time-five'></i>
+                        <a href="m-hours.html">Öffnungszeiten ansehen</a>
+                    </li>
+                </ul>
 
-            <button type="submit" class="button">
-                Nachricht senden
-            </button>
+                <div class="contact-social">
+                    <a href="https://www.tiktok.com/@eismachereieismac" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <i class='bx bxl-tiktok'></i>
+                    </a>
+                    <a href="https://www.instagram.com/eismacherei_wien_22" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class='bx bxl-instagram-alt'></i>
+                    </a>
+                    <a href="https://www.facebook.com/EISMACHEREI" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                </div>
+            </aside>
 
-            <p id="form-status" class="form-status"></p>
+            <!-- Formular -->
+            <form
+                id="contact-form"
+                action="https://formspree.io/f/xykdkgkq"
+                method="POST"
+                class="contact-form"
+                >
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" autocomplete="name" required>
+                </div>
 
-            <p class="form-consent">
-                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Beantwortung Ihrer Anfrage zu.
-            </p>
-        </form>
+                <div class="form-field">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" autocomplete="email" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Ihre Nachricht an uns …" required></textarea>
+                </div>
+
+                <!-- Honeypot gegen Spam-Bots (bleibt für Menschen unsichtbar) -->
+                <input type="text" name="_gotcha" class="form-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <button type="submit" class="button form-submit">
+                    <i class='bx bx-send'></i> Nachricht senden
+                </button>
+
+                <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+
+                <p class="form-consent">
+                    Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Beantwortung Ihrer Anfrage zu.
+                    Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+                </p>
+            </form>
+        </div>
     </section>
 </main>
+
+<script src="assets/js/main.js"></script>
 <script>
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
+  const submitBtn = form.querySelector('.form-submit');
+  const submitHTML = submitBtn.innerHTML;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const data = new FormData(form);
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Wird gesendet …";
+    status.className = 'form-status';
 
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        body: data,
+        body: new FormData(form),
         headers: {
           'Accept': 'application/json'
         }
       });
 
-      if (response.ok) {
-        form.reset();
-        status.style.display = 'block';
-        status.style.color = 'green';
-        status.textContent = 'Danke! Ihre Nachricht wurde erfolgreich gesendet.';
-      } else {
-        throw new Error();
-      }
+      if (!response.ok) throw new Error();
+
+      form.reset();
+      status.textContent = 'Danke! Ihre Nachricht wurde erfolgreich gesendet.';
+      status.classList.add('form-status--ok');
     } catch (error) {
-      status.style.display = 'block';
-      status.style.color = 'red';
       status.textContent = 'Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
+      status.classList.add('form-status--error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = submitHTML;
     }
   });
 </script>
